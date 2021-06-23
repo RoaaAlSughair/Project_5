@@ -17,3 +17,13 @@ CREATE TABLE users(
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (user_id)
 );
+
+CREATE TABLE comments(
+    id INT AUTO_INCREMENT NOT NULL,
+    comment nVARCHAR(255),
+    book_id INT,
+    commenter_id INT,
+    FOREIGN KEY (commenter_id) REFERENCES users(id),
+    is_deleted TINYINT DEFAULT 0,
+    PRIMARY KEY (id)
+);
