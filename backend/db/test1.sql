@@ -27,3 +27,6 @@ CREATE TABLE cart(
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id) FOREIGN KEY (user_id) REFERENCES users(id),
 );
+ALTER TABLE comments
+ADD FOREIGN KEY (book_id) REFERENCES book(book_id);
+
