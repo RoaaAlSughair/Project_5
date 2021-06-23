@@ -15,5 +15,24 @@ CREATE TABLE book(
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (book_id)
 );
+
 ALTER TABLE comments
 ADD FOREIGN KEY (book_id) REFERENCES book(book_id);
+
+CREATE TABLE cart(
+    id INT AUTO_INCREMENT NOT NULL,
+    quantity INT,
+    FOREIGN KEY (book_id) REFERENCES book(book_id),
+    total price float,
+    is_deleted TINYINT DEFAULT 0,
+    PRIMARY KEY (id) FOREIGN KEY (user_id) REFERENCES users(id),
+);
+
+CREATE TABLE categories (
+    category_id INT AUTO_INCREMENT NOT NULL,
+    category nVARCHAR (255) NOT NULL,
+    PRIMARY KEY (category_id)
+);
+ALTER TABLE comments
+ADD FOREIGN KEY (book_id) REFERENCES book(book_id);
+
