@@ -15,3 +15,5 @@ CREATE TABLE book(
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (book_id)
 );
+ALTER TABLE comments
+ADD FOREIGN KEY (book_id) REFERENCES book(book_id);
