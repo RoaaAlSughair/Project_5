@@ -22,6 +22,12 @@ CREATE TABLE users (
     PRIMARY KEY (user_id)
 );
 
+CREATE TABLE categories (
+    category_id INT AUTO_INCREMENT NOT NULL,
+    category NVARCHAR (255) NOT NULL,
+    PRIMARY KEY (category_id)
+);
+
 CREATE TABLE book (
     book_id INT AUTO_INCREMENT NOT NULL,
     book_img BLOB,
@@ -32,8 +38,10 @@ CREATE TABLE book (
     edition INT(5),
     pages INT(5),
     price FLOAT,
+    category_id INT,
     is_avalible TINYINT DEFAULT 1,
     is_deleted TINYINT DEFAULT 0,
+    FOREIGN KEY (category_id) REFERENCES categories(category_id),
     PRIMARY KEY (book_id)
 );
 
@@ -58,12 +66,6 @@ CREATE TABLE cart (
     FOREIGN KEY (book_id) REFERENCES book (book_id),
     FOREIGN KEY (user_id) REFERENCES users (user_id),
     PRIMARY KEY (id)
-);
-
-CREATE TABLE categories (
-    category_id INT AUTO_INCREMENT NOT NULL,
-    category NVARCHAR (255) NOT NULL,
-    PRIMARY KEY (category_id)
 );
 
 CREATE TABLE ratings (
