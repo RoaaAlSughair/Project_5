@@ -1,22 +1,14 @@
-// const jwt = require('jsonwebtoken');
-// const express = require("express");
+const connection = require("./../../db/db");
 
-// const connection = require('./../../db/db');
+const authorization = () => {
+  return async (req, res, next) => {
+    const user = await connection.users.findById(req.token.role_id);
+    console.log(token);
 
-// const authorization = (string) => {
-// 	return (req, res, next) => {
-// 		Role
-// 			.findById(req.token.role)
-// 			.then((result) => {
-// 				if (!result.permissions.includes(string))
-// 					return res.status(403).json({ message: 'forbidden' });
+    if (!user) return res.status(401).json({ message: "forbidden" });
 
-// 				next();
-// 			})
-// 			.catch((error) => {
-// 				res.status(403).json({ message: 'forbidden' });
-// 			});
-// 	};
-// };
-
-// module.exports = authorization;
+    req.user = user.get();
+    next();
+  };
+};
+module.exports = authorization;
