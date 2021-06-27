@@ -1,24 +1,22 @@
 const express = require("express");
 
 // Import functions
-const { addToFavorite } = require("../controllers/favorites");
+const { addToFavorite, removeFromFavorite } = require("../controllers/favorites");
 
 // Create router
 const favoriteRouter = express.Router();
 
 // Connect function to router
 favoriteRouter.post("/favorite", addToFavorite);
+favoriteRouter.delete("/favorite/:book_id", removeFromFavorite);
 
 // Export router
 module.exports = favoriteRouter;
 
 // to be used in server.js:
 /*
-in requirements:
-require("dotenv").config();
-
 in routers:
-const favoriteRouter = require("./routers/routes/shopping_cart");
+const favoriteRouter = require("./routers/routes/favorites");
 
 in app routers:
 app.use(favoriteRouter);
