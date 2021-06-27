@@ -17,5 +17,20 @@ const addToShoppingCart = (req, res) => {
   });
 };
 
+const removeFromShoppingCart = (req, res) => {
+  // get book_id from body
+  const book_id = req.params.book_id;
+
+  // delete cart item by book_id
+  const query = `DELETE FROM cart WHERE book_id = "${book_id}";`;
+  connection.query(query, (err, result) => {
+    if (err) {
+      throw err;
+    }
+
+    res.json(result);
+  });
+};
+
 // Export functions
-module.exports = { addToShoppingCart };
+module.exports = { addToShoppingCart, removeFromShoppingCart };

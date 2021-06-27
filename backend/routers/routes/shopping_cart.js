@@ -1,13 +1,14 @@
 const express = require("express");
 
 // Import functions
-const { addToShoppingCart } = require("../controllers/shopping_cart");
+const { addToShoppingCart, removeFromShoppingCart } = require("../controllers/shopping_cart");
 
 // Create router
 const shoppingCartRouter = express.Router();
 
 // Connect function to router
 shoppingCartRouter.post("/cart", addToShoppingCart);
+shoppingCartRouter.delete("/cart/:book_id", removeFromShoppingCart);
 
 // Export router
 module.exports = shoppingCartRouter;
