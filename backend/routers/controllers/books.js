@@ -28,8 +28,21 @@ const deleteBooksByID= (req, res) => {
     res.json(result);
   });
 };
+const addNewBooks= (req, res) => {
+  const { img_book,title, description , publisher,edition,pages , price,author } = req.body;
+  const query = `INSERT INTO book (mg_book,title, description , publisher,edition,pages , price,author) VALUES (?, ?, ?, ?,?, ?, ?, ?)`;
+  const data = [img_book,title, description , publisher,edition,pages , price,author];
+  db.query(query, data, (err, results) => {
+    if (err) {
+      throw err;
+    }
+    console.log(results);
+    res.json(results);
+  });
+};
 module.exports = {
   getAllBooks,
   getBooksByCategory,
-  deleteBooksByID
+  deleteBooksByID,
+  addNewBooks
 };
