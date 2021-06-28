@@ -14,7 +14,22 @@ const getBooksByCategory = (req, res) => {
     res.status(201).json(results);
   });
 };
+const deleteBooksByID= (req, res) => {
+  
+  const book_id = req.params.book_id;
+
+ 
+  const query = `DELETE FROM book WHERE book_id = "${book_id}";`;
+  db.query(query, (err, result) => {
+    if (err) {
+      throw err;
+    }
+
+    res.json(result);
+  });
+};
 module.exports = {
   getAllBooks,
   getBooksByCategory,
+  deleteBooksByID
 };
