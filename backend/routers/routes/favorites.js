@@ -1,5 +1,9 @@
 const express = require("express");
 
+// import middleware
+const authentication = require("../middlewares/authentication");
+const authorization = require("../middlewares/authorization");
+
 // Import functions
 const { addToFavorite, removeFromFavorite } = require("../controllers/favorites");
 
@@ -7,17 +11,8 @@ const { addToFavorite, removeFromFavorite } = require("../controllers/favorites"
 const favoriteRouter = express.Router();
 
 // Connect function to router
-favoriteRouter.post("/favorite", addToFavorite);
-favoriteRouter.delete("/favorite/:book_id", removeFromFavorite);
+favoriteRouter.post("/favorite", authentication, authorization("user"), addToFavorite);
+favoriteRouter.delete("/favorite/:book_id", authentication, authorization("user"), removeFromFavorite);
 
 // Export router
 module.exports = favoriteRouter;
-
-// to be used in server.js:
-/*
-in routers:
-const favoriteRouter = require("./routers/routes/favorites");
-
-in app routers:
-app.use(favoriteRouter);
-*/
