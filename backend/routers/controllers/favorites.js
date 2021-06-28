@@ -17,4 +17,19 @@ const addToFavorite = (req, res) => {
   });
 };
 
-module.exports = { addToFavorite };
+const removeFromFavorite = (req, res) => {
+  // get book_id of favorite item to be deleted
+  const book_id = req.params.book_id;
+
+  // delete the favorite item using book_id
+  const query = `DELETE FROM favorite WHERE book_id = "${book_id}";`;
+  connection.query(query, (err, result) => {
+    if (err) {
+      throw err;
+    }
+
+    res.json("Deleted successfully");
+  })
+};
+
+module.exports = { addToFavorite, removeFromFavorite };
