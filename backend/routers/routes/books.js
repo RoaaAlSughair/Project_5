@@ -1,10 +1,15 @@
 const express = require("express");
+
 const bookRouter = express.Router();
-const { getAllBooks, getBooksByCategory,deleteBooksByID,addNewBooks,updateBooksByID } = require("./../controllers/book");
+
+const {
+  getAllBooks,
+  getBookByTitle,
+  getBooksByAuthor,
+} = require("./../controllers/books");
 
 bookRouter.get("/", getAllBooks);
-bookRouter.get("/Category", getBooksByCategory);
-bookRouter.delete("/:id", deleteBooksByID);
-bookRouter.post("/", addNewBooks);
-bookRouter.put("/:id", updateBooksByID);
+bookRouter.get("/books", getBookByTitle);
+bookRouter.get("/books", getBooksByAuthor);
+
 module.exports = bookRouter;
