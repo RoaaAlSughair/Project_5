@@ -23,7 +23,7 @@ const login = (req, res) => {
 
         const options = { expiresIn: "30m" };
         let token = jwt.sign(payload, process.env.SECRET, options);
-        res.status(200).json("login successfully");
+        res.status(200).json(token);
       } else {
         res.status(204).json("Email does not exist");
       }
