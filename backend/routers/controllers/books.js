@@ -41,7 +41,9 @@ const addNewBooks = (req, res) => {
     price,
     author,
   } = req.body;
+
   const query = `INSERT INTO book (mg_book,title, description , publisher,edition,pages , price,author) VALUES (?, ?, ?, ?,?, ?, ?, ?)`;
+  
   const data = [
     img_book,
     title,
@@ -56,7 +58,7 @@ const addNewBooks = (req, res) => {
     if (err) {
       throw err;
     }
-    console.log(results);
+
     res.json(results);
   });
 };
@@ -73,7 +75,9 @@ const updateBooksByID = (req, res) => {
     price,
     author,
   } = req.body;
+
   const query = `UPDATE book SET img_book=?,title=?, description=? , publisher=?,edition=?,pages=? , price=?,author=? WHERE id=${id};`;
+  
   const data = [
     img_book,
     title,
@@ -87,16 +91,13 @@ const updateBooksByID = (req, res) => {
   ];
   connection.query(query, data, (err, result) => {
     if (err) throw err;
-    console.log("RESULT: ", result);
     res.json(result);
   });
 };
 
 const getBookByTitle = (req, res) => {
-  // get the book's title
   const title = req.query.title;
 
-  // inject the title in the query order to get the result
   const data = [title];
   const query = `SELECT * FROM book WHERE title = ?;`;
   connection.query(query, data, (err, result) => {
@@ -108,10 +109,8 @@ const getBookByTitle = (req, res) => {
 };
 
 const getBooksByAuthor = (req, res) => {
-  // get the author
   const author = req.query.author;
 
-  // inject the author in the query order to get the result
   const data = [author];
   const query = `SELECT * FROM book WHERE author = ?;`;
   connection.query(query, data, (err, result) => {
@@ -129,5 +128,5 @@ module.exports = {
   addNewBooks,
   updateBooksByID,
   getBookByTitle,
-  getBooksByAuthor
+  getBooksByAuthor,
 };
