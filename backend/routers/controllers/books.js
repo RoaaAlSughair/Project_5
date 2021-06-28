@@ -1,11 +1,13 @@
-const db = require("./../../db/db");
+const connection = require("./../../db/db");
+
 const getAllBooks = (req, res) => {
   const query = `SELECT * FROM book`;
-  db.query(query, (err, results) => {
+  connection.query(query, (err, results) => {
     if (err) throw err;
     res.status(201).json(results);
   });
 };
+
 const getBooksByCategory = (req, res) => {
   const category = req.params.category_id;
   const query = `SELECT * FROM book WHERE category_id=${category}`;
@@ -14,11 +16,12 @@ const getBooksByCategory = (req, res) => {
     res.status(201).json(results);
   });
 };
+
 const deleteBooksByID = (req, res) => {
   const book_id = req.params.book_id;
 
   const query = `DELETE FROM book WHERE book_id = "${book_id}";`;
-  db.query(query, (err, result) => {
+  connection.query(query, (err, result) => {
     if (err) {
       throw err;
     }
@@ -26,6 +29,7 @@ const deleteBooksByID = (req, res) => {
     res.json(result);
   });
 };
+
 const addNewBooks = (req, res) => {
   const {
     img_book,
@@ -48,7 +52,7 @@ const addNewBooks = (req, res) => {
     price,
     author,
   ];
-  db.query(query, data, (err, results) => {
+  connection.query(query, data, (err, results) => {
     if (err) {
       throw err;
     }
@@ -81,16 +85,49 @@ const updateBooksByID = (req, res) => {
     author,
     id,
   ];
-  db.query(query, data, (err, result) => {
+  connection.query(query, data, (err, result) => {
     if (err) throw err;
     console.log("RESULT: ", result);
     res.json(result);
   });
 };
+
+const getBookByTitle = (req, res) => {
+  // get the book's title
+  const title = req.query.title;
+
+  // inject the title in the query order to get the result
+  const data = [title];
+  const query = `SELECT * FROM book WHERE title = ?;`;
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      throw err;
+    }
+    res.status(200).json(result);
+  });
+};
+
+const getBooksByAuthor = (req, res) => {
+  // get the author
+  const author = req.query.author;
+
+  // inject the author in the query order to get the result
+  const data = [author];
+  const query = `SELECT * FROM book WHERE author = ?;`;
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      throw err;
+    }
+    res.status(200).json(result);
+  });
+};
+
 module.exports = {
   getAllBooks,
   getBooksByCategory,
   deleteBooksByID,
   addNewBooks,
   updateBooksByID,
+  getBookByTitle,
+  getBooksByAuthor
 };
