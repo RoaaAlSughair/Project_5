@@ -40,9 +40,22 @@ const addNewBooks= (req, res) => {
     res.json(results);
   });
 };
+
+const updateBooksByID =(req, res) => {
+  const id = req.params.book_id;
+  const { img_book,title, description , publisher,edition,pages , price,author } = req.body;
+  const query = `UPDATE book SET img_book=?,title=?, description=? , publisher=?,edition=?,pages=? , price=?,author=? WHERE id=${id};`;
+  const data = [img_book,title, description , publisher,edition,pages , price,author,id 0];
+  db.query(query, data, (err, result) => {
+    if (err) throw err;
+    console.log("RESULT: ", result);
+    res.json(result);
+  });
+};
 module.exports = {
   getAllBooks,
   getBooksByCategory,
   deleteBooksByID,
-  addNewBooks
+  addNewBooks,
+  updateBooksByID
 };
