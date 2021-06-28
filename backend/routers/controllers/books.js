@@ -45,7 +45,7 @@ const updateBooksByID =(req, res) => {
   const id = req.params.book_id;
   const { img_book,title, description , publisher,edition,pages , price,author } = req.body;
   const query = `UPDATE book SET img_book=?,title=?, description=? , publisher=?,edition=?,pages=? , price=?,author=? WHERE id=${id};`;
-  const data = [img_book,title, description , publisher,edition,pages , price,author,id 0];
+  const data = [img_book,title, description , publisher,edition,pages , price,author,id];
   db.query(query, data, (err, result) => {
     if (err) throw err;
     console.log("RESULT: ", result);
