@@ -89,6 +89,8 @@ CREATE TABLE contact (
 CREATE TABLE favorite (
     favorite_id INT AUTO_INCREMENT NOT NULL,
     book_id INT,
+    user_id INT,
     FOREIGN KEY (book_id) REFERENCES book (book_id),
+    FOREIGN KEY (user_id) REFERENCES users (user_id),
     PRIMARY KEY (favorite_id)
 );
