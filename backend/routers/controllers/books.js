@@ -1,5 +1,4 @@
-const connection = require("../../db/db");
-
+const db = require("./../../db/db");
 const getAllBooks = (req, res) => {
   const query = `SELECT * FROM book`;
   db.query(query, (err, results) => {
@@ -7,7 +6,6 @@ const getAllBooks = (req, res) => {
     res.status(201).json(results);
   });
 };
-
 const getBooksByCategory = (req, res) => {
   const category = req.params.category_id;
   const query = `SELECT * FROM book WHERE category_id=${category}`;
