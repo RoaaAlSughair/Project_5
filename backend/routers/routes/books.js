@@ -18,8 +18,8 @@ bookRouter.get("/", getAllBooks);
 bookRouter.get("/Category", getBooksByCategory);
 bookRouter.get("/search_title", getBookByTitle);
 bookRouter.get("/search_author", getBooksByAuthor);
-bookRouter.delete("/:id", authentication, authorization("admin"), deleteBooksByID);
+bookRouter.delete("/:book_id", authentication, authorization("admin"), deleteBooksByID);
 bookRouter.post("/", authentication, authorization("admin"), addNewBooks);
-bookRouter.put("/:id", authentication, authorization("admin"), updateBooksByID);
+bookRouter.put("/:book_id", authentication, authorization("admin"), updateBooksByID);
 
 module.exports = bookRouter;

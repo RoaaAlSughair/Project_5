@@ -32,7 +32,7 @@ const deleteBooksByID = (req, res) => {
 
 const addNewBooks = (req, res) => {
   const {
-    img_book,
+    book_img,
     title,
     description,
     publisher,
@@ -42,10 +42,10 @@ const addNewBooks = (req, res) => {
     author,
   } = req.body;
 
-  const query = `INSERT INTO book (img_book, title, description, publisher, edition, pages, price, author) VALUES (?, ?, ?, ?, ?, ?, ?, ?);`;
+  const query = `INSERT INTO book (book_img, title, description, publisher, edition, pages, price, author) VALUES (?, ?, ?, ?, ?, ?, ?, ?);`;
   
   const data = [
-    img_book,
+    book_img,
     title,
     description,
     publisher,
@@ -66,7 +66,7 @@ const addNewBooks = (req, res) => {
 const updateBooksByID = (req, res) => {
   const id = req.params.book_id;
   const {
-    img_book,
+    book_img,
     title,
     description,
     publisher,
@@ -76,10 +76,10 @@ const updateBooksByID = (req, res) => {
     author,
   } = req.body;
 
-  const query = `UPDATE book SET img_book=?, title=?, description=?, publisher=?, edition=?, pages=?, price=?, author=? WHERE id = ${id};`;
+  const query = `UPDATE book SET book_img=?, title=?, description=?, publisher=?, edition=?, pages=?, price=?, author=? WHERE book_id = ${id};`;
   
   const data = [
-    img_book,
+    book_img,
     title,
     description,
     publisher,
