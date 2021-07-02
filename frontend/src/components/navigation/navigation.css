@@ -1,3 +1,10 @@
-body{
-    
+.NavBar{
+    border-style: solid;
+    border-color: darkblue;
+    display: flex;
+    justify-content: space-around;
+}
+
+Link {
+    text-decoration: none;
 }
