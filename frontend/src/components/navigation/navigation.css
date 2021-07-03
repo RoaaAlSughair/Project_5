@@ -1,5 +1,4 @@
 .navigation {
-    /* border: yellow solid 4px; */
     width: 20%;
     display: flex;
     flex-direction: column;
@@ -31,4 +30,3 @@
     transition: ease 0.1s transform;
     transform: translateY(1.5px);
   }
-  
