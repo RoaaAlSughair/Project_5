@@ -15,7 +15,7 @@ const {
 } = require("./../controllers/books");
 
 bookRouter.get("/", getAllBooks);
-bookRouter.get("/:category_id", getBooksByCategory);
+bookRouter.get("/Category", getBooksByCategory);
 bookRouter.get("/search_title", getBookByTitle);
 bookRouter.get("/search_author", getBooksByAuthor);
 bookRouter.delete("/:book_id", authentication, authorization("admin"), deleteBooksByID);
