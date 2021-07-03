@@ -11,6 +11,7 @@ const loginRouter = require('./routers/routes/auth/login');
 const bookRouter = require('./routers/routes/books');
 const favoriteRouter = require('./routers/routes/favorites');
 const shoppingCartRouter = require('./routers/routes/shopping_cart');
+const ContactUsRouter = require('./routers/routes/ContactUs')
 
 //built-in middlewares
 app.use(express.json());
@@ -24,6 +25,7 @@ app.use(registerRouter);
 app.use('/book',bookRouter);
 app.use(favoriteRouter);
 app.use(shoppingCartRouter);
+app.use(ContactUsRouter);
 
 const PORT = process.env.PORT || 5000;
 
