@@ -27,7 +27,7 @@ const Main = () => {
       {state.books.map((elem, index) => {
         return (
           <div key={index} className="book">
-            <img className="book_element" src={elem.book_img} alt="Book cover"/>
+            <img className="book_photo" src={elem.book_img} alt="Book cover"/>
             <p className="book_element">{elem.title}</p>
             <p className="book_element">{elem.description}</p>
             <p className="book_element">{elem.author}</p>
@@ -35,7 +35,7 @@ const Main = () => {
             {/* <p className="book_element">{elem.ratings}</p> */}
           </div>
         );
-      })};
+      })}
     </div>
   );
 };

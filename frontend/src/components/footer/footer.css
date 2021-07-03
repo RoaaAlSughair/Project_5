@@ -1,0 +1,52 @@
+#footer {
+    display: flex;
+    justify-content: space-around;
+    color: #000;
+    position: relative;
+    height: 80px;
+   
+    background-color: #0D4373;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
+  .link {
+    text-decoration: none;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    /* background-color: #d7d9d6; */
+  }
+  
+  .footerLink {
+    position: relative;
+    top: 15px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .About{
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-display: 2px;
+    color: #000;
+    justify-items: center;
+  
+  }
+  
+  p {
+    align-items: center;
+  }
+  
+  .Contact {
+    font-size: large;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-display: 2px;
+    color: #000;
+    justify-items: center;
+    border: black solid 3px;
+  }
+  
+  #social {
+    margin-top: 20px;
+    cursor: pointer;
+    color: white;
+  }
+  
