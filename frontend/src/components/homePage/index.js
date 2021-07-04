@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setBooks } from "../../reducers/homePage";
 import Axios from "axios";
 
-export default function homePage() {
+export default function HomePage() {
   const dispatch = useDispatch();
   const state = useSelector((state) => {
     return {
