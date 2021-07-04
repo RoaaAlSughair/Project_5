@@ -9,7 +9,7 @@ import { Link, Route } from "react-router-dom";
 function BookPage(role, token) {
   return (
     <div className="bookPage">
-      {token ? (
+     
         <>
           <Link
             to="/AddBook"
@@ -40,7 +40,7 @@ function BookPage(role, token) {
             <div className="link">get Book by category</div>
           </Link>
         </>
-      ) : null}
+    
       <Route exact path="/AddBook" component={AddBookPage} />
       <Route exact path="/EditBook" component={EditBookPage} />
       <Route exact path="/DeleteBook" component={DeleteBookPage} />
