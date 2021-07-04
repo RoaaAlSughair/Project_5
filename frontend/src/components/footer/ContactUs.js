@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import axios from "axios";
 import './footer.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function ContactUs() {
     const [fullName,setFullName]=useState('');

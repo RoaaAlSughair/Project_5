@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function EditBookPage() {
   const [book_id, setBook_id] = useState(0);
