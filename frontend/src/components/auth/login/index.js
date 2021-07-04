@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setToken } from "../../../reducers/login";
-import loginImg from "./Trip-cuate.png";
+
 import "./login.css";
 
 const Login = () => {
@@ -24,65 +24,53 @@ const Login = () => {
       });
   };
   return (
-    <div className="container">
-      <div className="auth">
-        <div className="leftAuth">
-          <img src={loginImg} alt="" />
-        </div>
-        <div className="rightAuth">
-          <div>
-            <h1>Welcome, Login</h1>
-          </div>
-          <table>
-            <tr>
-              <td>
-                <label>Email</label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input
-                  type="email"
-                  required
-                  placeholder="Email"
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Password</label>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input
-                  type="password"
-                  required
-                  placeholder="Password"
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <button onClick={signIn}>Login</button>
-              </td>
-            </tr>
-          </table>
-          <p>{message}</p>
-          <p>
-            Don't have account?{" "}
-            <Link to="/register" className="authLink">
-              Register
-            </Link>
-          </p>
-        </div>
+    <div>
+      <div>
+        <h1>Login Page</h1>
       </div>
+      <table>
+        <tr>
+          <td>
+            <label>Email</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="email"
+              placeholder="Email"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>Password</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button onClick={signIn}>Login</button>
+          </td>
+        </tr>
+      </table>
+      <p>{message}</p>
+      <p>
+        Sign Up for website <Link to="/register">Register</Link>
+      </p>
     </div>
   );
 };
