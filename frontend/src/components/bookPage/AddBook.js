@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function AddBookPage() {
 const [book_img,setBook_img]=useState();
