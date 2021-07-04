@@ -1,3 +1,38 @@
-body{
-    
-}
+  .NavBar {
+    background-color: wheat;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  Link {
+    text-decoration: none;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    background-color: #0D4373;
+    font-size: 22px;
+    color: white;
+    font-weight: bold;
+  }
+
+  Link:hover {
+      background-color: #d7d9d6;
+      background-color: #bfc7d9;
+      color: black;
+      cursor: pointer;
+      border: outset 0.5px;
+      border-radius: 10px;
+      transition: ease 0.25s transform;
+      transform: translateX(7px);
+  }
+  
+  Link:active {
+    transition: ease 0.1s transform;
+    transform: translateY(1.5px);
+  }
