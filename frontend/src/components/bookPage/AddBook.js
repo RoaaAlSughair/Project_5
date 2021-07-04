@@ -24,7 +24,6 @@ axios.post("http://localhost:5000/book/", {
   price: price,
   author: author,
 }).then((res)=>{
-  res.json('jjjjjjjjjjjjjjjj')
   setSuccess(true);
 }).catch((err)=>{
   setSuccess(false);

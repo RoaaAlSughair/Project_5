@@ -4,6 +4,8 @@ import Main from "./components/main/index";
 import Navigation from "./components/navigation/index";
 import Footer from "./components/footer/index";
 import BookPage from "./components/bookPage/index";
+import { FloatingWhatsApp } from 'react-floating-whatsapp-button'
+import 'react-floating-whatsapp-button/dist/index.css' 
 
 const App = () => {
   const [token, setToken] = useState("");
@@ -12,7 +14,7 @@ const App = () => {
       <Navigation />
       <Main />
       <Footer />
-      {token ? (
+      
         <Link
           to="/book_page"
           className="Book_page"
@@ -20,7 +22,7 @@ const App = () => {
         >
           <Route path="/book_page" render={() => <BookPage />} />
         </Link>
-      ) : null}
+      <FloatingWhatsApp />
     </div>
   );
 };
