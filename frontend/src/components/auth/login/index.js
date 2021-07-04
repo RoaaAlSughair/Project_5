@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setToken } from "../../../reducers/login";
@@ -11,12 +11,14 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const dispatch = useDispatch();
+  const history = useHistory();
   const signIn = () => {
     axios
       .post("http://localhost:5000/login", { email, password })
       .then((result) => {
         console.log(result);
-        setMessage("Login Successful");
+        history.push("/book/")
+        // setMessage("Login Successful");
         dispatch(setToken(result.data.token));
       })
       .catch((err) => {
