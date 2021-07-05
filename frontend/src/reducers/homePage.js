@@ -2,7 +2,7 @@ const initState = {
     books: [],
 };
 
-const main = (state = initState, { type, payload }) => {
+const homePage = (state = initState, { type, payload }) => {
     switch (type) {
         case "SET_BOOKS":
             return {books: [... payload]};
@@ -11,7 +11,7 @@ const main = (state = initState, { type, payload }) => {
     }
 };
 
-export default main;
+export default homePage;
 
 export const setBooks = (books) => {
     return {
