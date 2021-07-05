@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import axios from "axios";
-import './footer.css';
+import './contact.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function ContactUs() {
@@ -15,7 +15,6 @@ export default function ContactUs() {
             message:message
 
         }).then((response)=>{
-          // response.json('Added successfully')
 
         }).catch((err)=>{
           throw err ;

@@ -6,6 +6,7 @@ import Navigation from "../navigation/index";
 import Login from "./../auth/login/index";
 import SignUp from "./../auth/signUp/index";
 import HomePage from "../homePage";
+import Contact from "../Contact/Contact";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Main = () => {
@@ -16,6 +17,7 @@ const Main = () => {
         <Route exact path="/login" render={() => <Login />} />
         <Route exact path="/Register" render={() => <SignUp />} />
         <Route exact path="/" render={() => <HomePage />}/>
+        <Route exact path="/contact" render={() => <Contact />}/>
         {/* <Route exact path="/Register" render={() => <Category />} /> 
         <Route exact path="/Register" render={() => <Authors />} />  */}
       </div>
