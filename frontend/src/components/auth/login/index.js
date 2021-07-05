@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link,useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setToken } from "../../../reducers/login";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { GoogleLogin } from "react-google-login";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./login.css";
 
 const Login = () => {
@@ -16,8 +17,8 @@ const Login = () => {
     axios
       .post("http://localhost:5000/login", { email, password })
       .then((result) => {
-        console.log(result);
-        history.push("/book/")
+        localStorage.setItem("token",result.data.token)
+        history.push("/book/");
         // setMessage("Login Successful");
         dispatch(setToken(result.data.token));
       })
@@ -25,18 +26,23 @@ const Login = () => {
         setMessage(err.response.data);
       });
   };
+  const ResponseGoogle = (response) => {
+    setToken(response.accessToken);
+    localStorage.setItem("token", response.accessToken);
+    history.push("/contact");
+  };
+  const logOut = () => {
+    localStorage.clear();
+    localStorage.setItem()
+  }
   return (
     <div>
-      <div>
-        <h1>Login Page</h1>
-      </div>
+      <h1>Login Page</h1>
       <table>
         <tr>
           <td>
             <label>Email</label>
           </td>
-        </tr>
-        <tr>
           <td>
             <input
               type="email"
@@ -47,12 +53,11 @@ const Login = () => {
             />
           </td>
         </tr>
+        <tr></tr>
         <tr>
           <td>
             <label>Password</label>
           </td>
-        </tr>
-        <tr>
           <td>
             <input
               type="password"
@@ -63,6 +68,7 @@ const Login = () => {
             />
           </td>
         </tr>
+        <tr></tr>
         <tr>
           <td>
             <button onClick={signIn}>Login</button>
@@ -73,6 +79,13 @@ const Login = () => {
       <p>
         Sign Up for website <Link to="/register">Register</Link>
       </p>
+      <div>
+          <GoogleLogin
+            clientId="1018427859000-rr1mqigkk7fvghqfnh85ph78eru3lo8m.apps.googleusercontent.com"
+            onSuccess={ResponseGoogle}
+            onFailure={ResponseGoogle}
+          />
+        </div>
     </div>
   );
 };

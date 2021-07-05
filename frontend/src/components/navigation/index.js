@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import Axios from "axios";
-import { Link,Route } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { Link} from "react-router-dom";
 import "./navigation.css";
 // import { searchBook } from "../../reducers/navigation";
-import login from "../../reducers/login";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Navigation = () => {
@@ -52,8 +50,11 @@ const Navigation = () => {
   
   return (
     <div className="NavBar">
-      <Link to="/categories" style={{textDecoration: "none",}}>Categories</Link>
-      <Link to="/authors" style={{textDecoration: "none",}}>Authors</Link>
+      <Link to="/login" style={{textDecoration: "none",}}>دخول</Link>
+      <Link to="/Register" style={{textDecoration: "none",}}>التسجيل</Link>
+      <Link to="/categories" style={{textDecoration: "none",}}>الاقسام</Link>
+      <Link to="/authors" style={{textDecoration: "none",}}>المؤلفين</Link>
+      <Link to="/contact" style={{textDecoration: "none",}}>اتصل بنا</Link>
       <input
         type="text"
         placeholder="Search book by title or author"
@@ -62,10 +63,6 @@ const Navigation = () => {
       <span>
         <button onClick={handleClick}>Search</button>
       </span>
-      <Link to="/login" style={{textDecoration: "none",}}>Login</Link>
-      <Link to="/Register" style={{textDecoration: "none",}}>
-        <button>Sign up</button>
-      </Link>
       {/* Should search results be displayed in main component? Or should it be redirected into a new page? */}
     </div>
   );
