@@ -14,14 +14,14 @@ const App = () => {
    
       <Main />
       <Footer />
-      
-        <Link
-          to="/book_page"
-          className="Book_page"
+      <BookPage/>
+        {/* <Link
+          to="/bookPage"
+          className="BookPage"
           style={{ textDecoration: "none" }}
         >
           <Route path="/book_page" render={() => <BookPage />} />
-        </Link>
+        </Link> */}
       <FloatingWhatsApp />
     </div>
   );

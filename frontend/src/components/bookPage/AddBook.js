@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./bookPage.css";
 
 function AddBookPage() {
 const [book_img,setBook_img]=useState();
@@ -32,7 +33,7 @@ axios.post("http://localhost:5000/book/", {
 })
 };
 return (
-    <div className="bookPage">
+    <div className="input-group mb-3">
       <input type="file" onChange={(e) => {setBook_img(e.target.value);}}    />
       <input type="text" placeholder="title here " onChange={(e) => {setTitle(e.target.value);}}/>
       <input type="text" placeholder="description here " onChange={(e) => {setDescription(e.target.value);}}/>
@@ -42,7 +43,7 @@ return (
       <input type="Number" placeholder="price here " onChange={(e) => {setPrice(e.target.value);}}/>
       <input type="text" placeholder="author here " onChange={(e) => {setAuthor(e.target.value);}}/>
 
-      <button onClick={AddBook}>Add Book</button>
+      <button className="btn-check" onClick={AddBook}>Add Book</button>
       
     </div>
   );
