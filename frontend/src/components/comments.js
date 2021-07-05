@@ -6,7 +6,7 @@ import {
   createComment,
   updateComment,
   deleteComment,
-} from "./../../reducers/todos";
+} from "./../../reducers/comments";
 
 const CommentsList = () => {
   const [comment, setComment] = useState("");
