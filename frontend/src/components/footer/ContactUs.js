@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import axios from "axios";
 import './footer.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function ContactUs() {
     const [fullName,setFullName]=useState('');
@@ -24,13 +25,12 @@ export default function ContactUs() {
 
 
   return (
-    <div className="About">
-      <h1> About </h1>
+    <div className="input-group mb-3">
       <input type="text" placeholder="full Name here " onChange={(e) => {setFullName(e.target.value);}}/>
     <input type="text" placeholder="email here " onChange={(e) => {setEmail(e.target.value);}}/>
-    <input type="text" placeholder="message here " onChange={(e) => {setMessage(e.target.value);}}/>
+    <textarea  rows='3' placeholder="message here " onChange={(e) => {setMessage(e.target.value);}}/>
 
-    <button className='addButton' type='button' onClick={contact}>send</button>
+    <button className="btn-check" type='button' onClick={contact}>send</button>
            
     </div>
   );

@@ -5,6 +5,8 @@ import { Link, Route } from "react-router-dom";
 import Navigation from "../navigation/index";
 import Login from "./../auth/login/index";
 import SignUp from "./../auth/signUp/index";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const Main = () => {
   return (
     <>

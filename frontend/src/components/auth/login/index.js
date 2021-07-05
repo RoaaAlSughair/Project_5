@@ -3,7 +3,7 @@ import { Link,useHistory } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setToken } from "../../../reducers/login";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./login.css";
 
 const Login = () => {
