@@ -19,7 +19,6 @@ const Login = () => {
       .then((result) => {
         localStorage.setItem("token",result.data.token)
         history.push("/book/");
-        // setMessage("Login Successful");
         dispatch(setToken(result.data.token));
       })
       .catch((err) => {
@@ -31,10 +30,10 @@ const Login = () => {
     localStorage.setItem("token", response.accessToken);
     history.push("/contact");
   };
-  const logOut = () => {
-    localStorage.clear();
-    localStorage.setItem()
-  }
+  // const logOut = () => {
+  //   localStorage.clear();
+  //   localStorage.setItem()
+  // }
   return (
     <div>
       <h1>Login Page</h1>
