@@ -8,7 +8,7 @@ export default function HomePage() {
   const dispatch = useDispatch();
   const state = useSelector((state) => {
     return {
-      books: state.main.books,
+      books: state.homePage.books,
     };
   });
 
