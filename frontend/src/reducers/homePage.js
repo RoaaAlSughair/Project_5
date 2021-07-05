@@ -5,7 +5,7 @@ const initState = {
 const homePage = (state = initState, { type, payload }) => {
     switch (type) {
         case "SET_BOOKS":
-            return {books: [... payload]};
+            return {books: [...payload]};
         default:
             return initState;
     }

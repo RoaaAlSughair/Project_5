@@ -21,7 +21,7 @@
     font-weight: bold;
   }
 
-  Link:hover {
+  /* Link:hover {
       background-color: #d7d9d6;
       background-color: #bfc7d9;
       color: black;
@@ -31,8 +31,8 @@
       transition: ease 0.25s transform;
       transform: translateX(7px);
   }
-  
-  Link:active {
+   */
+  /* Link:active {
     transition: ease 0.1s transform;
     transform: translateY(1.5px);
-  }
+  } */
