@@ -27,7 +27,8 @@ const SignUp = () => {
       });
   };
   return (
-    <>
+    <div>
+    <h1>Register Page</h1>
       <table className="table1">
         <tr>
           <th>first name</th>
@@ -85,7 +86,7 @@ const SignUp = () => {
       </table>
 
       
-    </>
+    </div>
   );
 };
 

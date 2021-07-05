@@ -31,16 +31,12 @@ export default function HomePage() {
       {state.books.map((elem, index) => {
         return (
           <div key={index} book_id={elem.book_id} className="book">
-            <img
-              className="book_image"
-              src={elem.book_img}
-              alt="Book cover"
-              style={{ height: "12rem", width: "12rem" }}
-            />
-            <p className="book_element">Title: {elem.title}</p>
-            <p className="book_element">Author: {elem.author}</p>
-            <p className="book_element">Price: {elem.price}</p>
-            <ReactStars
+         
+         <img className="book_image" src={elem.book_img} alt="غلاف الكتاب" style={{height: "12rem", width: "12rem"}}/>
+            <p className="book_element">العنوان: {elem.title}</p>
+            <p className="book_element">المؤلف: {elem.author}</p>
+            <p className="book_element">السعر: {elem.price}</p>
+           <ReactStars
               count={5}
               onClick={ratingChanged}
               size={24}
@@ -49,7 +45,7 @@ export default function HomePage() {
              
 
             />
-            ,{/* <p className="book_element">{elem.ratings}</p> */}
+
           </div>
         );
       })}

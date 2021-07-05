@@ -1,58 +1,10 @@
-#footer {
-    display: flex;
-    justify-content: space-around;
-    color: #000;
-    position: relative;
-    height: 80px;
-   
-    background-color: #0D4373;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  }
-  .link {
-    text-decoration: none;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    /* background-color: #d7d9d6; */
-  }
-  
-  .footerLink {
-    position: relative;
-    top: 15px;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-  }
-  .About{
-    font-size: large;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-display: 2px;
-    color: #000;
-    justify-items: center;
-  
-  }
-  
-  
-  .Contact {
-    font-size: large;
-    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-    font-display: 2px;
-    color: #000;
-    justify-items: center;
-    border: black solid 3px;
-  }
-  
- 
-  
-  .input-group {
-    border: black solid 2px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    width: 70%;
-    left: 10rem ;
-
-}
-input{
-    margin: 1rem;
-
+.footer{
+  background-color: rgb(31, 38, 59);
+  color:#d6d3c7;
+  height: 50px;
+  text-align: center;
+  justify-content: center;
+  padding-top: 10px;
+  font-size: 20px;
+  font-family: Courier, monospace;
 }
