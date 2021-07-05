@@ -1,6 +1,6 @@
 import React from "react";
 import './footer.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function AboutUs() {
   return (

@@ -9,7 +9,7 @@ import {
 	FaInstagramSquare,
 	FaLinkedin,
   } from "react-icons/fa";
-
+  import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const Footer = () => {
