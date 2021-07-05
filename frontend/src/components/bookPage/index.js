@@ -3,6 +3,7 @@ import AddBookPage from "./AddBook";
 import EditBookPage from "./EditBook";
 import DeleteBookPage from "./deleteBook";
 import Category from "./Category";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Link, Route } from "react-router-dom";
 

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setBooks } from "../../reducers/homePage";
 import Axios from "axios";
 import "./homePage.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function HomePage() {
   const dispatch = useDispatch();

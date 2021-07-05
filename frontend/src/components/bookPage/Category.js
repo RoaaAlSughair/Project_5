@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import axios from "axios";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./bookPage.css";
 
 export default function Category() {
         const [category_id, setCategory_id] = useState(0);
@@ -12,9 +13,9 @@ export default function Category() {
         })
       };
     return (
-        <div>
+        <div className="input-group mb-3" >
     <input type="Number" placeholder="Category_id here " onChange={(e) => {setCategory_id(e.target.value);}}/>
-      <button onClick={getByCategory}>get Book</button>
+      <button className="btn-check"  onClick={getByCategory}>get Book</button>
         </div>
     )
 };

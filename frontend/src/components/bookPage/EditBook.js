@@ -1,5 +1,7 @@
 import React,{useState} from "react";
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./bookPage.css";
 
 function EditBookPage() {
   const [book_id, setBook_id] = useState(0);
@@ -26,7 +28,7 @@ function EditBookPage() {
   };
 
   return (
-    <div className="bookPage">
+    <div className="input-group mb-3">
       <input type="Number" placeholder="book_id here " onChange={(e) => {setBook_id(e.target.value);}}/>
       <input type="text" placeholder="title here " onChange={(e) => {setTitle(e.target.value);}}/>
       <input type="text" placeholder="description here " onChange={(e) => {setDescription(e.target.value);}}/>
@@ -35,7 +37,7 @@ function EditBookPage() {
       <input type="Number" placeholder="pages here " onChange={(e) => {setPages(e.target.value);}}/>
       <input type="Number" placeholder="price here " onChange={(e) => {setPrice(e.target.value);}}/>
       <input type="text" placeholder="author here " onChange={(e) => {setAuthor(e.target.value);}}/>
-      <button onClick={EditBook}>Edit Book</button>
+      <button className="btn-check" onClick={EditBook}>Edit Book</button>
     </div>
   );
 }
