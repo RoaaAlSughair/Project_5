@@ -30,7 +30,7 @@ CREATE TABLE categories (
 
 CREATE TABLE book (
     book_id INT AUTO_INCREMENT NOT NULL,
-    book_img BLOB,
+    book_img VARCHAR(255),
     title NVARCHAR (50),
     description NVARCHAR (255),
     author NVARCHAR (255),
