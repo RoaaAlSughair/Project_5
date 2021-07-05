@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setBooks } from "../../reducers/homePage";
 import Axios from "axios";
+import "./homePage.css"
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ export default function HomePage() {
       {state.books.map((elem, index) => {
         return (
           <div key={index} book_id={elem.book_id} className="book">
-            <img className="book_image" src={elem.book_img} alt="Book cover"/>
+            <img className="book_image" src={elem.book_img} alt="Book cover" style={{height: "12rem", width: "12rem"}}/>
             <p className="book_element">Title: {elem.title}</p>
             <p className="book_element">Author: {elem.author}</p>
             <p className="book_element">Price: {elem.price}</p>

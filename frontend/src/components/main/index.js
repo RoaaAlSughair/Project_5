@@ -5,6 +5,8 @@ import { Link, Route } from "react-router-dom";
 import Navigation from "../navigation/index";
 import Login from "./../auth/login/index";
 import SignUp from "./../auth/signUp/index";
+import HomePage from "../homePage";
+
 const Main = () => {
   return (
     <>
@@ -12,6 +14,7 @@ const Main = () => {
       <div className="Main">
         <Route exact path="/login" render={() => <Login />} />
         <Route exact path="/Register" render={() => <SignUp />} />
+        <Route exact path="/" render={() => <HomePage />}/>
         {/* <Route exact path="/Register" render={() => <Category />} /> 
     <Route exact path="/Register" render={() => <Authors />} />  */}
       </div>

@@ -9,7 +9,7 @@
 
 .book {
     border-style: solid;
+    height: fit-content;
     border-color: crimson;
-    height: 5rem;
     display: inline-block;
 }
