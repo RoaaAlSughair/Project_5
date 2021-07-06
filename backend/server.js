@@ -12,6 +12,7 @@ const bookRouter = require('./routers/routes/books');
 const favoriteRouter = require('./routers/routes/favorites');
 const shoppingCartRouter = require('./routers/routes/shopping_cart');
 const ContactUsRouter = require('./routers/routes/ContactUs')
+const CommentsRouter=require('./routers/routes/comments');
 
 //built-in middlewares
 app.use(express.json());
@@ -26,6 +27,8 @@ app.use('/book',bookRouter);
 app.use(favoriteRouter);
 app.use(shoppingCartRouter);
 app.use(ContactUsRouter);
+app.use(CommentsRouter);
+
 
 const PORT = process.env.PORT || 5000;
 
