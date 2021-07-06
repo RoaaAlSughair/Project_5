@@ -15,7 +15,7 @@ const initialState = {
       case 'UPDATE_comment':
         return {
           comments: state.comments.map((comment) => {
-            if (comment._id === payload._id) {
+            if (comment.comment_id === payload.comment_id) {
               return payload;
             } else {
               return comment;
@@ -26,7 +26,7 @@ const initialState = {
       case 'DELETE_comment':
         return {
           comments: state.comments.filter(
-            (comment) => comment._id !== payload._id,
+            (comment) => comment.comment_id !== payload.comment_id,
           ),
         };
   
