@@ -5,7 +5,7 @@ import Navigation from "../navigation/index";
 import Login from "./../auth/login/index";
 import SignUp from "./../auth/signUp/index";
 import HomePage from "../homePage";
-import Comments from "./../../reducers/comments";
+import Comments from "./../../components/comments";
 import Contact from "../Contact/Contact";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -18,7 +18,7 @@ const Main = () => {
         <Route exact path="/Register" render={() => <SignUp />} />
         <Route exact path="/" render={() => <HomePage />}/>
 
-        <Route exact path="/comments" render={() => <Comments />}/>
+        <Route exact path="/Comments" render={() => <Comments />}/>
 
 
         <Route exact path="/contact" render={() => <Contact />}/>
