@@ -30,6 +30,9 @@ const SignUp = () => {
     <div>
       <h1>Register Page</h1>
       <table className="table1">
+    <div className="register">
+    <h1>Register Page</h1>
+      <table className="table">
         <tr>
           <th>first name</th>
           <th>
@@ -84,6 +87,7 @@ const SignUp = () => {
           <th>
             <button onClick={register}>Sign Up</button>
           </th>
+          <th><button id="button" onClick={register}>Sign Up</button></th>
         </tr>
       </table>
     </div>

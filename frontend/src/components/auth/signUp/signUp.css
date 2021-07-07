@@ -1,15 +1,20 @@
-register {
+.register {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto;
   gap: 5%;
-  width: 80%;
+  width: 100%;
   justify-content: center;
   padding-top: 5%;
-  width: 78%;
   border-radius: 10px;
   margin-left: 20px;
   background-color: #bfc7d9;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.table {
+  text-align: center;
+  justify-content: center;
+  color: red;
 }
 
 @media screen and (max-width: 700px) {
@@ -20,21 +25,20 @@ register {
     flex-direction: column;
   }
 }
+
 #radio {
   display: -webkit-inline-box;
   flex-wrap: wrap;
   width: 250px;
   position: relative;
   bottom: 30%;
-  /* right: 46px; */
 }
+
 #button {
   background-color: royalblue;
   color: whitesmoke;
   height: 50px;
-  width: 250px;
-  /* margin-left: 158px;
-  margin-top: 50px; */
+  width: 150px;
   position: relative;
   left: 4%;
   border-radius: 8px;
@@ -47,15 +51,4 @@ input {
   height: 25px;
   width: 230px;
   border-radius: 8px;
-}
-
-label {
-  margin: 8px;
-  padding: 4px;
-}
-
-.table1 {
-  text-align: center;
-  justify-content: center;
-  color: red;
 }
