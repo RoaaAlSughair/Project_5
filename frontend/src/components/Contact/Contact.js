@@ -25,7 +25,7 @@ export default function ContactUs() {
 
   return (
     <>
-    <div className="About">
+    <div className="about">
       <h1> About  </h1>
       <ion-icon name="mail-outline">booksworms@yahoo.com</ion-icon><br></br>
       <ion-icon name="call-outline">00962-798-777-222</ion-icon><br></br>

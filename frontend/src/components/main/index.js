@@ -7,6 +7,9 @@ import SignUp from "./../auth/signUp/index";
 import HomePage from "../homePage";
 import Comments from "./../../components/comments";
 import Contact from "../Contact/Contact";
+import AddBookPage from "../bookPage/AddBook";
+import EditBookPage from "../bookPage/EditBook";
+import DeleteBookPage from "../bookPage/deleteBook";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Main = () => {
@@ -22,7 +25,9 @@ const Main = () => {
 
 
         <Route exact path="/contact" render={() => <Contact />}/>
-
+        <Route exact path="/AddBook" render={() => <AddBookPage />}/>
+        <Route exact path="/EditBook" render={() => <EditBookPage />}/>
+        <Route exact path="/DeleteBook" render={() => <DeleteBookPage />}/>
         {/* <Route exact path="/Register" render={() => <Category />} /> 
         <Route exact path="/Register" render={() => <Authors />} />  */}
       </div>
