@@ -27,9 +27,6 @@ const SignUp = () => {
       });
   };
   return (
-    <div>
-      <h1>Register Page</h1>
-      <table className="table1">
     <div className="register">
     <h1>Register Page</h1>
       <table className="table">
