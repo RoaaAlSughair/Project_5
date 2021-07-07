@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { setToken } from "../../../reducers/login";
 import { GoogleLogin } from "react-google-login";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,13 +13,23 @@ const Login = () => {
   const [message, setMessage] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
+    // useSelector gives us access to the store
+    const state = useSelector((state) => {
+      // specify which state to subscribe to (state tree => reducer => state name )
+      return {
+        token: state.login.token,
+        
+      };
+    });
   const signIn = () => {
     axios
       .post("http://localhost:5000/login", { email, password })
       .then((result) => {
-        localStorage.setItem("token",result.data.token)
-        history.push("/book/");
-        dispatch(setToken(result.data.token));
+        console.log(result);
+        localStorage.setItem("token",result.data)
+        console.log("result.data.token"+result.data);
+        history.push("/AddBook");
+        dispatch(setToken(result.data));
       })
       .catch((err) => {
         setMessage(err.response.data);
@@ -34,8 +44,9 @@ const Login = () => {
   //   localStorage.clear();
   //   localStorage.setItem()
   // }
+  
   return (
-    <div>
+    <div className="test">
       <h1>Login Page</h1>
       <table>
         <tr>

@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./bookPage.css";
 
@@ -13,7 +14,13 @@ function EditBookPage() {
   const [pages, setPages] = useState("");
   const [price, setPrice] = useState("");
   const [author, setAuthor] = useState("");
-
+  const state = useSelector((state) => {
+    // specify which state to subscribe to (state tree => reducer => state name )
+    return {
+      token: state.login.token,
+      
+    };
+  });
   const EditBook = () => {
     axios.put(`http://localhost:5000/book/${book_id}`, {
       book_img: book_img,
@@ -24,12 +31,19 @@ function EditBookPage() {
       pages: pages,
       price: price,
       author: author,
-    });
+    },{
+      headers:{
+        authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    }
+    
+    );
   };
 
   return (
     <div className="input-group mb-3">
       <input type="Number" placeholder="book_id here " onChange={(e) => {setBook_id(e.target.value);}}/>
+      <input type="text" placeholder="img url here " onChange={(e) => {setBook_img(e.target.value);}}/>
       <input type="text" placeholder="title here " onChange={(e) => {setTitle(e.target.value);}}/>
       <input type="text" placeholder="description here " onChange={(e) => {setDescription(e.target.value);}}/>
       <input type="text" placeholder="publisher here " onChange={(e) => {setPublisher(e.target.value);}}/>

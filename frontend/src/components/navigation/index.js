@@ -50,11 +50,11 @@ const Navigation = () => {
   
   return (
     <div className="NavBar">
-      <Link to="/login" style={{textDecoration: "none",}}>دخول</Link>
-      <Link to="/Register" style={{textDecoration: "none",}}>التسجيل</Link>
-      <Link to="/categories" style={{textDecoration: "none",}}>الاقسام</Link>
-      <Link to="/authors" style={{textDecoration: "none",}}>المؤلفين</Link>
-      <Link to="/contact" style={{textDecoration: "none",}}>اتصل بنا</Link>
+      <Link to="/login" style={{textDecoration: "none",}}>Log In</Link>
+      <Link to="/Register" style={{textDecoration: "none",}}>Register</Link>
+      <Link to="/categories" style={{textDecoration: "none",}}>Category</Link>
+      <Link to="/authors" style={{textDecoration: "none",}}>Author</Link>
+      <Link to="/contact" style={{textDecoration: "none",}}>Contact</Link>
       <input
         type="text"
         placeholder="Search book by title or author"
