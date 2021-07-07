@@ -1,13 +1,11 @@
 .input-group {
-    border: black solid 2px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    width: 70%;
-    left: 10rem ;
-
+  border: black solid 2px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 70%;
+  left: 10rem;
 }
-input{
-    margin: 1rem;
-
+input {
+  margin: 1rem;
 }

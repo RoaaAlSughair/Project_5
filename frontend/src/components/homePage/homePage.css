@@ -1,19 +1,27 @@
 .home_page {
-    display: flex;
-    justify-content: space-around;
+  /* display: flex; */
+  display: grid;
+  /* justify-content: space-around;
     flex-direction: row;
-    flex-wrap: wrap;
-    border-style: solid;
-    border-color: black;
-    margin-top: 1rem;
-    width: 100%;
-    height:fit-content;
+    flex-wrap: wrap; */
+  grid-template-columns: auto auto auto auto;
+  gap: 20px;
+  border-style: solid;
+  border-color: black;
+  margin: 20px;
+  padding: 10px;
+  /* margin-top: 1rem; */
+  width: 100%;
+  height: fit-content;
 }
 
 .book {
-    border-style: solid;
-    height: fit-content;
-    border-color: crimson;
-    display: inline-block;
-    text-align: right;
+  border-style: solid;
+  height: fit-content;
+  border-color: crimson;
+  display: inline-block;
+  text-align: right;
+}
+.book_element {
+  margin-top: 10px;
 }

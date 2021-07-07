@@ -1,9 +1,9 @@
 const express = require("express");
 
-const {ContactUs} = require('./../controllers/ContactUs')
+const { ContactUs } = require("./../controllers/ContactUs");
 
 const ContactUsRouter = express.Router();
 
-ContactUsRouter.post('/ContactUs',ContactUs);
+ContactUsRouter.post("/ContactUs", ContactUs);
 
-module.exports=ContactUsRouter;
+module.exports = ContactUsRouter;

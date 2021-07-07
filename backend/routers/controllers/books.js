@@ -43,7 +43,7 @@ const addNewBooks = (req, res) => {
   } = req.body;
 
   const query = `INSERT INTO book (book_img, title, description, publisher, edition, pages, price, author) VALUES (?, ?, ?, ?, ?, ?, ?, ?);`;
-  
+
   const data = [
     book_img,
     title,
@@ -77,7 +77,7 @@ const updateBooksByID = (req, res) => {
   } = req.body;
 
   const query = `UPDATE book SET book_img=?, title=?, description=?, publisher=?, edition=?, pages=?, price=?, author=? WHERE book_id = ${id};`;
-  
+
   const data = [
     book_img,
     title,

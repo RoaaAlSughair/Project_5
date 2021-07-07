@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setToken } from "../../../reducers/login";
 import { GoogleLogin } from "react-google-login";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,21 +13,20 @@ const Login = () => {
   const [message, setMessage] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
-    // useSelector gives us access to the store
-    const state = useSelector((state) => {
-      // specify which state to subscribe to (state tree => reducer => state name )
-      return {
-        token: state.login.token,
-        
-      };
-    });
+  // useSelector gives us access to the store
+  const state = useSelector((state) => {
+    // specify which state to subscribe to (state tree => reducer => state name )
+    return {
+      token: state.login.token,
+    };
+  });
   const signIn = () => {
     axios
       .post("http://localhost:5000/login", { email, password })
       .then((result) => {
         console.log(result);
-        localStorage.setItem("token",result.data)
-        console.log("result.data.token"+result.data);
+        localStorage.setItem("token", result.data);
+        console.log("result.data.token" + result.data);
         history.push("/AddBook");
         dispatch(setToken(result.data));
       })
@@ -44,9 +43,9 @@ const Login = () => {
   //   localStorage.clear();
   //   localStorage.setItem()
   // }
-  
+
   return (
-    <div className="test">
+    <div className="login">
       <h1>Login Page</h1>
       <table>
         <tr>
@@ -80,8 +79,11 @@ const Login = () => {
         </tr>
         <tr></tr>
         <tr>
+          <td></td>
           <td>
-            <button onClick={signIn}>Login</button>
+            <button onClick={signIn} id="button">
+              Login
+            </button>
           </td>
         </tr>
       </table>
@@ -90,12 +92,12 @@ const Login = () => {
         Sign Up for website <Link to="/register">Register</Link>
       </p>
       <div>
-          <GoogleLogin
-            clientId="1018427859000-rr1mqigkk7fvghqfnh85ph78eru3lo8m.apps.googleusercontent.com"
-            onSuccess={ResponseGoogle}
-            onFailure={ResponseGoogle}
-          />
-        </div>
+        <GoogleLogin
+          clientId="1018427859000-rr1mqigkk7fvghqfnh85ph78eru3lo8m.apps.googleusercontent.com"
+          onSuccess={ResponseGoogle}
+          onFailure={ResponseGoogle}
+        />
+      </div>
     </div>
   );
 };

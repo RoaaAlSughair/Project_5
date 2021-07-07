@@ -29,7 +29,7 @@ const removeFromFavorite = (req, res) => {
     }
 
     res.json("Deleted successfully");
-  })
+  });
 };
 
 module.exports = { addToFavorite, removeFromFavorite };

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import "./signUp.css"
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "./signUp.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
@@ -28,7 +28,7 @@ const SignUp = () => {
   };
   return (
     <div>
-    <h1>Register Page</h1>
+      <h1>Register Page</h1>
       <table className="table1">
         <tr>
           <th>first name</th>
@@ -81,11 +81,11 @@ const SignUp = () => {
         </tr>
         <tr>
           <th></th>
-          <th><button onClick={register}>Sign Up</button></th>
+          <th>
+            <button onClick={register}>Sign Up</button>
+          </th>
         </tr>
       </table>
-
-      
     </div>
   );
 };

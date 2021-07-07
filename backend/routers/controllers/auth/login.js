@@ -8,8 +8,7 @@ const login = (req, res) => {
   connection.query(query, data, async (err, result) => {
     if (err) {
       throw err;
-    }
-    else if (result.length == 0) {
+    } else if (result.length == 0) {
       res.status(404).json("this email doesn't exist");
     } else {
       const comparison = await bcrypt.compare(password, result[0].password);
@@ -18,7 +17,7 @@ const login = (req, res) => {
           user_id: result[0].user_id,
           role_id: result[0].role_id,
         };
-       
+
         const options = { expiresIn: "1000m" };
         let token = jwt.sign(payload, process.env.SECRET, options);
         res.status(200).json(token);
