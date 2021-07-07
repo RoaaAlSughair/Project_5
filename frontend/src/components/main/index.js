@@ -1,11 +1,11 @@
 import React from "react";
-import Axios from "axios";
 import "./main.css";
-import { Link, Route } from "react-router-dom";
+import {  Route } from "react-router-dom";
 import Navigation from "../navigation/index";
 import Login from "./../auth/login/index";
 import SignUp from "./../auth/signUp/index";
 import HomePage from "../homePage";
+import Comments from "./../../components/comments";
 import Contact from "../Contact/Contact";
 import AddBookPage from "../bookPage/AddBook";
 import EditBookPage from "../bookPage/EditBook";
@@ -20,6 +20,10 @@ const Main = () => {
         <Route exact path="/login" render={() => <Login />} />
         <Route exact path="/Register" render={() => <SignUp />} />
         <Route exact path="/" render={() => <HomePage />}/>
+
+        <Route exact path="/Comments" render={() => <Comments />}/>
+
+
         <Route exact path="/contact" render={() => <Contact />}/>
         <Route exact path="/AddBook" render={() => <AddBookPage />}/>
         <Route exact path="/EditBook" render={() => <EditBookPage />}/>
