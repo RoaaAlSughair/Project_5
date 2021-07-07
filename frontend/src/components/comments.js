@@ -16,17 +16,26 @@ const CommentsList = () => {
 
   const state = useSelector((state) => {
     return {
+      token: state.login.token,
       comments: state.comments.comments,
     };
   });
 
   const create_Comment = () => {
     axios
-      .post(`http://localhost:5000/Comments`, {
-        book_id,
-        commenter_id,
-        comment,
-      })
+      .post(
+        `http://localhost:5000/Comments`,
+        {
+          book_id,
+          commenter_id,
+          comment,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
       .then((res) => {
         dispatch(createComment(res.data));
       })
@@ -48,11 +57,19 @@ const CommentsList = () => {
 
   const update_Comment = () => {
     axios
-      .put(`http://localhost:5000/Comments`, {
-        book_id,
-        commenter_id,
-        comment,
-      })
+      .put(
+        `http://localhost:5000/Comments`,
+        {
+          book_id,
+          commenter_id,
+          comment,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
       .then((res) => {
         dispatch(updateComment(res.data));
       })
@@ -63,7 +80,11 @@ const CommentsList = () => {
 
   const delete_Comment = () => {
     axios
-      .delete(`http://localhost:5000/Comments`)
+      .delete(`http://localhost:5000/Comments`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
       .then((res) => {
         dispatch(deleteComment(res.data));
       })

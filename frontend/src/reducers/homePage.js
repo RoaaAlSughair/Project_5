@@ -1,21 +1,21 @@
 const initState = {
-    books: [],
+  books: [],
 };
 
 const homePage = (state = initState, { type, payload }) => {
-    switch (type) {
-        case "SET_BOOKS":
-            return {books: [...payload]};
-        default:
-            return initState;
-    }
+  switch (type) {
+    case "SET_BOOKS":
+      return { books: [...payload] };
+    default:
+      return initState;
+  }
 };
 
 export default homePage;
 
 export const setBooks = (books) => {
-    return {
-        type: "SET_BOOKS",
-        payload: books,
-    }
-}
+  return {
+    type: "SET_BOOKS",
+    payload: books,
+  };
+};

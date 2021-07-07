@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import Axios from "axios";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./navigation.css";
 // import { searchBook } from "../../reducers/navigation";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Navigation = () => {
-//   const dispatch = useDispatch();
+  //   const dispatch = useDispatch();
 
   const [search, setSearch] = useState("");
 
   // I'm not sure if it's necessary for navigation to have a reducer
-//   const state = useSelector((state) => {
-//     return {
-//       searched_book: state.navigation.searched_book,
-//     };
-//   });
+  //   const state = useSelector((state) => {
+  //     return {
+  //       searched_book: state.navigation.searched_book,
+  //     };
+  //   });
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -47,14 +47,24 @@ const Navigation = () => {
     }
   };
 
-  
   return (
     <div className="NavBar">
-      <Link to="/login" style={{textDecoration: "none",}}>Log In</Link>
-      <Link to="/Register" style={{textDecoration: "none",}}>Register</Link>
-      <Link to="/categories" style={{textDecoration: "none",}}>Category</Link>
-      <Link to="/authors" style={{textDecoration: "none",}}>Author</Link>
-      <Link to="/contact" style={{textDecoration: "none",}}>Contact</Link>
+      <Link to="/login" style={{ textDecoration: "none" }}>
+        Log In
+      </Link>
+      <Link to="/Register" style={{ textDecoration: "none" }}>
+        Register
+      </Link>
+      <Link to="/home" style={{ textDecoration: "none" }}>
+        Home
+      </Link>
+      <Link to="/Category" style={{ textDecoration: "none" }}>
+        Category
+      </Link>
+      <Link to="/authors" style={{ textDecoration: "none" }}>
+        Author
+      </Link>
+
       <input
         type="text"
         placeholder="Search book by title or author"

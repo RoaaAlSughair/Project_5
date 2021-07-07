@@ -18,25 +18,28 @@ function AddBookPage() {
     // specify which state to subscribe to (state tree => reducer => state name )
     return {
       token: state.login.token,
-      
     };
   });
   const AddBook = () => {
     axios
-      .post("http://localhost:5000/book", {
-        book_img: book_img,
-        title: title,
-        description: description,
-        publisher: publisher,
-        edition: edition,
-        pages: pages,
-        price: price,
-        author: author,
-      },{
-        headers:{
-          authorization: `Bearer ${localStorage.getItem("token")}`
+      .post(
+        "http://localhost:5000/book",
+        {
+          book_img: book_img,
+          title: title,
+          description: description,
+          publisher: publisher,
+          edition: edition,
+          pages: pages,
+          price: price,
+          author: author,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
         }
-      })
+      )
       .then((res) => {
         setSuccess(true);
       })
