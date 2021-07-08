@@ -64,7 +64,9 @@ const Navigation = () => {
       <Link to="/authors" style={{ textDecoration: "none" }}>
         Author
       </Link>
-
+      <Link to="/contact" style={{ textDecoration: "none" }}>
+        contact
+      </Link>
       <input
         type="text"
         placeholder="Search book by title or author"
