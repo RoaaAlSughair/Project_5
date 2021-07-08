@@ -28,7 +28,7 @@ const SignUp = () => {
   };
   return (
     <div className="register">
-    <h1>Register Page</h1>
+      <h1>Register Page</h1>
       <table className="table">
         <tr>
           <th>first name</th>
@@ -82,9 +82,10 @@ const SignUp = () => {
         <tr>
           <th></th>
           <th>
-            <button onClick={register}>Sign Up</button>
+            <button id="button" onClick={register}>
+              Sign Up
+            </button>
           </th>
-          <th><button id="button" onClick={register}>Sign Up</button></th>
         </tr>
       </table>
     </div>

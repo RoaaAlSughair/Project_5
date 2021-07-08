@@ -34,27 +34,42 @@ export default function ContactUs() {
         </ion-icon>
       </div>
       <div className="input-group mb-3">
-        <input
+        <table>
+          <tr>
+        
+            <td><label>Full Name :</label></td>
+            <td><input
           type="text"
           placeholder="full Name here "
           onChange={(e) => {
             setFullName(e.target.value);
           }}
-        />
-        <input
+        /></td>
+          </tr>
+          <tr>
+            <td><label>Email :</label></td>
+            <td><input
           type="text"
           placeholder="email here "
           onChange={(e) => {
             setEmail(e.target.value);
           }}
-        />
-        <textarea
-          rows="3"
+        /></td>
+          </tr>
+          <tr>
+            <td><label>Message: </label></td>
+            <td><textarea
+          rows="3" 
           placeholder="message here "
           onChange={(e) => {
             setMessage(e.target.value);
           }}
-        />
+        /></td>
+          </tr>
+        </table>
+        
+        
+        
 
         <button className="btn-check" type="button" onClick={contact}>
           send
