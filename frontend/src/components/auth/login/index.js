@@ -24,10 +24,8 @@ const Login = () => {
     axios
       .post("http://localhost:5000/login", { email, password })
       .then((result) => {
-        console.log(result);
         localStorage.setItem("token", result.data);
-        console.log("result.data.token" + result.data);
-        history.push("/AddBook");
+
         dispatch(setToken(result.data));
       })
       .catch((err) => {
@@ -37,13 +35,11 @@ const Login = () => {
   const ResponseGoogle = (response) => {
     setToken(response.accessToken);
     localStorage.setItem("token", response.accessToken);
-    history.push("/contact");
   };
   // const logOut = () => {
   //   localStorage.clear();
   //   localStorage.setItem()
   // }
-
   return (
     <div className="login">
       <h1>Login Page</h1>
@@ -101,5 +97,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;

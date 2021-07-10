@@ -1,11 +1,27 @@
 .footer {
   background-color: rgb(31, 38, 59);
   color: #d6d3c7;
-  height: 50px;
+  height: 3rem;
   text-align: center;
   justify-content: center;
-  padding-top: 10px;
-  font-size: 20px;
-  font-family: Courier, monospace;
-  margin-bottom: 20px;
+  padding-top: 0.6rem;
+  font-size: 1.25rem;
+  font-family: sans-serif;
 }
+
+.Contact{
+  display: grid;
+  grid-template-columns: auto auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5%;
+  width: fit-content;
+  padding: 1.5rem;
+  justify-content: center;
+  margin-left: 35%;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+  border-style: solid;
+  color: #a24e12;
+}
+

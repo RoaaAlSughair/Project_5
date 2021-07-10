@@ -1,54 +1,50 @@
 .register {
   display: grid;
   grid-template-columns: auto;
-  gap: 5%;
-  width: 100%;
+  gap: 0.25rem;
+  width: fit-content;
+  padding: 1.5rem;
   justify-content: center;
-  padding-top: 5%;
-  border-radius: 10px;
-  margin-left: 20px;
-  background-color: #bfc7d9;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  margin-left: 30%;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+  border-style: solid;
+  border-color: black;
+  border-radius: 0.5rem;
+  color: #a24e12;
+}
+
+.table td, .table th {
+  padding: 0.75rem;
+  vertical-align: middle;
+  font-size: 1.25rem;
 }
 
 .table {
+  font-family: sans-serif;
+  vertical-align: middle;
   text-align: center;
   justify-content: center;
-  color: red;
-}
-
-@media screen and (max-width: 700px) {
-  .register {
-    display: flex;
-    padding: 0%;
-    height: max-content;
-    flex-direction: column;
-  }
-}
-
-#radio {
-  display: -webkit-inline-box;
-  flex-wrap: wrap;
-  width: 250px;
-  position: relative;
-  bottom: 30%;
+  align-items: center;
+  color: #a24e12;
 }
 
 #button {
-  background-color: royalblue;
-  color: whitesmoke;
-  height: 50px;
-  width: 150px;
+  font-family: sans-serif;
+  background-color: #a24e12;
+  color: white;
+  height: 3rem;
+  width: 10rem;
   position: relative;
-  left: 4%;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 
 input {
+  font-family: sans-serif;
   display: flex;
-  padding: 4px;
-  margin: 6px;
-  height: 25px;
-  width: 230px;
-  border-radius: 8px;
+  padding: 0.25rem;
+  margin: 0.5rem;
+  height: 2rem;
+  width: 15rem;
+  border-radius: 0.5rem;
 }
