@@ -49,32 +49,33 @@ const Navigation = () => {
 
   return (
     <div className="NavBar">
-      <Link to="/login" style={{ textDecoration: "none" }}>
-        Log In
-      </Link>
-      <Link to="/Register" style={{ textDecoration: "none" }}>
-        Register
-      </Link>
-      <Link to="/home" style={{ textDecoration: "none" }}>
+      <Link to="/home" className="Link">
         Home
       </Link>
-      <Link to="/Category" style={{ textDecoration: "none" }}>
+      <Link to="/Category" className="Link">
         Category
       </Link>
-      <Link to="/authors" style={{ textDecoration: "none" }}>
+      <Link to="/authors" className="Link">
         Author
       </Link>
-      <Link to="/contact" style={{ textDecoration: "none" }}>
-        contact
-      </Link>
+      <div id="search">
       <input
         type="text"
-        placeholder="Search book by title or author"
+        className="searchBar"
+        placeholder="Search book"
         onChange={handleChange}
       />
-      <span>
-        <button onClick={handleClick}>Search</button>
-      </span>
+        <button className="button" onClick={handleClick}>Search</button>
+        </div>
+      <Link to="/contact" className="Link">
+        Contact
+      </Link>
+      <Link to="/login" className="Link">
+        Log In
+      </Link>
+      <Link to="/Register" className="Link">
+        Register
+      </Link>
       {/* Should search results be displayed in main component? Or should it be redirected into a new page? */}
     </div>
   );

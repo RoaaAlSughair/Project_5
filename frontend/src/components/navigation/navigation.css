@@ -1,38 +1,57 @@
 .NavBar {
   background-color: rgb(31, 38, 59);
-  min-height: 10vh;
+  min-height: 2rem;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  font-size: calc(10px + 2vmin);
-  color: #d6d3c7;
+  justify-content: space-evenly;
+  font-size: 1.25rem
 }
 
-Link {
+.Link {
   text-decoration: none;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  background-color: #0d4373;
-  font-size: 22px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 1.125rem;
   color: white;
-  font-weight: bold;
+  font-family: sans-serif;
 }
 
-/* Link:hover {
-      background-color: #d7d9d6;
-      background-color: #bfc7d9;
-      color: black;
-      cursor: pointer;
-      border: outset 0.5px;
-      border-radius: 10px;
-      transition: ease 0.25s transform;
-      transform: translateX(7px);
-  }
-   */
-/* Link:active {
-    transition: ease 0.1s transform;
-    transform: translateY(1.5px);
-  } */
+.Link:hover {
+  text-decoration: none;
+  color: #a24e12;
+  cursor: pointer;
+  transition: ease 0.25s transform;
+  transform: translateX(0.5rem);
+}
+
+.Link:active {
+  text-decoration: none;
+  transition: ease 0.1s transform;
+  transform: translateY(0.125rem);
+}
+
+.searchBar {
+  font-family: sans-serif;
+  padding: 0.125rem;
+  margin: 0.25rem;
+  height: fit-content;
+  width: 20rem;
+  border-radius: 0.5rem;
+}
+
+.button {
+  font-family: sans-serif;
+  background-color: #a24e12;
+  color: white;
+  height: fit-content;
+  width: fit-content;
+  position: initial;
+  padding: 0.125rem;
+  border-radius: 0.5rem;
+}
+
+#search {
+  display: flex;
+  align-items: center;
+}
