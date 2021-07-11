@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./bookPage.css";
 
 function AddBookPage() {
@@ -50,7 +49,7 @@ function AddBookPage() {
       });
   };
   return (
-    <div className="input-group mb-3">
+    <div>
       <input
         type="text"
         placeholder="URL picture here "
@@ -108,7 +107,7 @@ function AddBookPage() {
         }}
       />
 
-      <button className="btn-check" onClick={AddBook}>
+      <button onClick={AddBook}>
         Add Book
       </button>
     </div>

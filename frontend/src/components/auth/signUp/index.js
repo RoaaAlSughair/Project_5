@@ -84,7 +84,7 @@ const SignUp = () => {
         <tr>
           <th></th>
           <th>
-            <button id="button" onClick={register}>
+            <button className="register-button" onClick={register}>
               Sign Up
             </button>
           </th>
