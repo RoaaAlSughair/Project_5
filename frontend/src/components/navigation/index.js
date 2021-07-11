@@ -50,13 +50,16 @@ const Navigation = () => {
   return (
     <div className="NavBar">
       <Link to="/home" className="Link">
-        Home
+        <span style={{color: "#a24e12", fontSize: "2rem", fontFamily: "math", fontWeight: "bolder"}}>Home</span>
       </Link>
       <Link to="/Category" className="Link">
         Category
       </Link>
       <Link to="/authors" className="Link">
         Author
+      </Link>
+      <Link to="/admin" className="Link">
+        Admin Page
       </Link>
       <div className="search">
       <input
