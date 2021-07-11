@@ -23,57 +23,76 @@ export default function ContactUs() {
 
   return (
     <>
-      <div className="about">
-        <h1> About </h1>
-        <ion-icon name="mail-outline">booksworms@yahoo.com</ion-icon>
+      <div className="contact">
+        <h1 style={{ color: "black" }}> About Us</h1>
+        <ion-icon name="mail-outline">
+          <span style={{ color: "black", fontSize: "1.25rem" }}>Email:</span>{" "}
+          booksworms@yahoo.com
+        </ion-icon>
         <br></br>
-        <ion-icon name="call-outline">00962-798-777-222</ion-icon>
+        <ion-icon name="call-outline">
+          <span style={{ color: "black", fontSize: "1.25rem" }}>Tel:</span>{" "}
+          00962-798-777-222
+        </ion-icon>
         <br></br>
         <ion-icon name="location-outline">
+          <span style={{ color: "black", fontSize: "1.25rem" }}>Location:</span>{" "}
           Jordan-Amman-abdullah ghosha street-abdullah bilding
         </ion-icon>
       </div>
-      <div className="input-group mb-3">
-        <table>
+      <div className="contact">
+        <table className="table-contact">
           <tr>
-        
-            <td><label>Full Name :</label></td>
-            <td><input
-          type="text"
-          placeholder="full Name here "
-          onChange={(e) => {
-            setFullName(e.target.value);
-          }}
-        /></td>
+            <td>
+              <label>Full Name :</label>
+            </td>
+            <td>
+              <input
+                type="text"
+                placeholder="full Name here "
+                onChange={(e) => {
+                  setFullName(e.target.value);
+                }}
+              />
+            </td>
           </tr>
           <tr>
-            <td><label>Email :</label></td>
-            <td><input
-          type="text"
-          placeholder="email here "
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        /></td>
+            <td>
+              <label>Email :</label>
+            </td>
+            <td>
+              <input
+                type="text"
+                placeholder="email here "
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
+            </td>
           </tr>
           <tr>
-            <td><label>Message: </label></td>
-            <td><textarea
-          rows="3" 
-          placeholder="message here "
-          onChange={(e) => {
-            setMessage(e.target.value);
-          }}
-        /></td>
+            <td>
+              <label>Message: </label>
+            </td>
+            <td>
+              <textarea
+                rows="3"
+                placeholder="message here "
+                onChange={(e) => {
+                  setMessage(e.target.value);
+                }}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <button className="button" onClick={contact}>
+                send
+              </button>
+            </td>
           </tr>
         </table>
-        
-        
-        
-
-        <button className="btn-check" type="button" onClick={contact}>
-          send
-        </button>
       </div>
     </>
   );
