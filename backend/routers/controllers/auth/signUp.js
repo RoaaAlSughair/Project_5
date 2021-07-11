@@ -14,7 +14,7 @@ const Register = async (req, res) => {
   ];
   connection.query(query, data, (err, results) => {
     if (err) {
-      res.status(400).json(err);
+      throw err;
     }
     res.status(201).json(results);
   });
