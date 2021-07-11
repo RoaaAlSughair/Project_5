@@ -62,14 +62,16 @@ const Navigation = () => {
         Admin Page
       </Link>
       <div className="search">
-      <input
-        type="text"
-        className="searchBar"
-        placeholder="Search book"
-        onChange={handleChange}
-      />
-        <button className="button-search" onClick={handleClick}>Search</button>
-        </div>
+        <input
+          type="text"
+          className="searchBar"
+          placeholder="Search book"
+          onChange={handleChange}
+        />
+        <button className="button-search" onClick={handleClick}>
+          Search
+        </button>
+      </div>
       <Link to="/contact" className="Link">
         Contact
       </Link>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./bookPage.css";
 
 const DeleteBookPage = () => {
@@ -26,7 +25,7 @@ const DeleteBookPage = () => {
   };
 
   return (
-    <div className="input-group mb-3">
+    <div>
       <input
         type="Number"
         placeholder="book_id here "
@@ -34,7 +33,7 @@ const DeleteBookPage = () => {
           setBook_id(e.target.value);
         }}
       />
-      <button className="btn-check" onClick={deleteBook}>
+      <button onClick={deleteBook}>
         Delete Book
       </button>
     </div>

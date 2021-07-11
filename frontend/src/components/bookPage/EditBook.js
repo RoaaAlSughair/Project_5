@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./bookPage.css";
 
 function EditBookPage() {
@@ -42,7 +41,7 @@ function EditBookPage() {
   };
 
   return (
-    <div className="input-group mb-3">
+    <div>
       <input
         type="Number"
         placeholder="book_id here "
@@ -106,7 +105,7 @@ function EditBookPage() {
           setAuthor(e.target.value);
         }}
       />
-      <button className="btn-check" onClick={EditBook}>
+      <button onClick={EditBook}>
         Edit Book
       </button>
     </div>

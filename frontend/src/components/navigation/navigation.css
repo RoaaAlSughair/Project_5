@@ -47,7 +47,8 @@
   height: fit-content;
   width: fit-content;
   position: initial;
-  padding: 0.125rem;
+  font-size: 1rem;
+  padding: 0.35rem;
   border-radius: 0.5rem;
 }
 

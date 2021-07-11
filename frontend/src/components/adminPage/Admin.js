@@ -1,7 +1,7 @@
 import React from "react";
 import BookPage from "./../bookPage/index";
-import CategoryPage from "./../Category/index"
-import "bootstrap/dist/css/bootstrap.min.css";
+import "../bookPage/bookPage.css";
+
 export default function Admin() {
   return (
     <>
