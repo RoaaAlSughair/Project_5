@@ -58,14 +58,14 @@ const Navigation = () => {
       <Link to="/authors" className="Link">
         Author
       </Link>
-      <div id="search">
+      <div className="search">
       <input
         type="text"
         className="searchBar"
         placeholder="Search book"
         onChange={handleChange}
       />
-        <button className="button" onClick={handleClick}>Search</button>
+        <button className="button-search" onClick={handleClick}>Search</button>
         </div>
       <Link to="/contact" className="Link">
         Contact
