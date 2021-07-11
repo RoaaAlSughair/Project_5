@@ -77,23 +77,26 @@ const Login = () => {
         <tr>
           <td></td>
           <td>
-            <button onClick={signIn} id="button">
+            <button onClick={signIn} className="button">
               Login
             </button>
-          </td>
-        </tr>
-      </table>
-      <p>{message}</p>
-      <p>
-        Sign Up for website <Link to="/register">Register</Link>
-      </p>
-      <div>
+            <div className='google' >
+            <p > or </p>
         <GoogleLogin
           clientId="1018427859000-rr1mqigkk7fvghqfnh85ph78eru3lo8m.apps.googleusercontent.com"
           onSuccess={ResponseGoogle}
           onFailure={ResponseGoogle}
         />
       </div>
+          </td>
+        </tr>
+        <p>{message}</p>
+      <p>
+        Sign Up for website <Link to="/register">Register</Link>
+      </p>
+ 
+      </table>
+     
     </div>
   );
 };

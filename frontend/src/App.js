@@ -7,13 +7,15 @@ import BookPage from "./components/bookPage/index";
 import { FloatingWhatsApp } from "react-floating-whatsapp-button";
 import "react-floating-whatsapp-button/dist/index.css";
 import Login from "./components/auth/login/index";
+import Admin from "./components/adminPage/Admin";
 const App = () => {
   const [token, setToken] = useState("");
   return (
     <div className="App">
+     
       <Main />
       <Footer />
-      <BookPage />
+      {/* <BookPage /> */}
       {/* <Link
           to="/bookPage"
           className="BookPage"

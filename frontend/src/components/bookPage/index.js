@@ -11,34 +11,37 @@ function BookPage(role, token) {
   return (
     <div className="bookPage">
       <>
-        <Link
+      <button><Link
           to="/AddBook"
           className="linkN"
           style={{ textDecoration: "none" }}
         >
           <div className="link">Add Book</div>
-        </Link>
-        <Link
+        </Link></button>
+        <button><Link
           to="/EditBook"
           className="linkN"
           style={{ textDecoration: "none" }}
         >
           <div className="link">Edit Book</div>
-        </Link>
-        <Link
+        </Link></button>
+        <button><Link
           to="/DeleteBook"
           className="linkN"
           style={{ textDecoration: "none" }}
         >
           <div className="link">Delete Book</div>
-        </Link>
-        <Link
+        </Link></button>
+        <button><Link
           to="/category_id"
           className="linkN"
           style={{ textDecoration: "none" }}
         >
           <div className="link">get Book by category</div>
-        </Link>
+        </Link></button>
+     
+        
+        
       </>
 
       <Route exact path="/AddBook" component={AddBookPage} />
