@@ -25,7 +25,7 @@ const Login = () => {
       .post("http://localhost:5000/login", { email, password })
       .then((result) => {
         localStorage.setItem("token", result.data);
-
+        history.push("/admin");
         dispatch(setToken(result.data));
       })
       .catch((err) => {

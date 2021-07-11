@@ -13,7 +13,7 @@ const favoriteRouter = require("./routers/routes/favorites");
 const shoppingCartRouter = require("./routers/routes/shopping_cart");
 const ContactUsRouter = require("./routers/routes/ContactUs");
 const CommentsRouter = require("./routers/routes/comments");
-
+const categoryRouter = require("./routers/routes/category");
 //built-in middlewares
 app.use(express.json());
 
@@ -28,7 +28,7 @@ app.use(favoriteRouter);
 app.use(shoppingCartRouter);
 app.use(ContactUsRouter);
 app.use(CommentsRouter);
-
+app.use("/category", categoryRouter);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
