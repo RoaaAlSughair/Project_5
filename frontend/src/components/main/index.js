@@ -11,6 +11,9 @@ import Admin from "../adminPage/Admin";
 import AddBookPage from "../bookPage/AddBook";
 import EditBookPage from "../bookPage/EditBook";
 import DeleteBookPage from "../bookPage/deleteBook";
+import AddCategory from "../Category/AddCategory";
+import EditCategory from "../Category/EditCategory";
+import DeleteCategory from "../Category/DeleteCategory";
 import Category from "../bookPage/Category";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -29,7 +32,9 @@ const Main = () => {
         <Route exact path="/EditBook" render={() => <EditBookPage />} />
         <Route exact path="/DeleteBook" render={() => <DeleteBookPage />} />
         <Route exact path="/Category" render={() => <Category />} />
-
+        <Route exact path="/AddCategory" render={() => <AddCategory />} />
+        <Route exact path="/EditCategory" render={() => <EditCategory />} />
+        <Route exact path="/DeleteCategory" render={() => <DeleteCategory />} />
         {/* <Route exact path="/Register" render={() => <Category />} /> 
         <Route exact path="/Register" render={() => <Authors />} />  */}
       </div>
