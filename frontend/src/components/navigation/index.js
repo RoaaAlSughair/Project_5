@@ -73,6 +73,15 @@ const Navigation = () => {
           Search
         </button>
       </div>
+      <div className="search">
+      <input
+        type="text"
+        className="searchBar"
+        placeholder="Search book"
+        onChange={handleChange}
+      />
+        <button className="button-search" onClick={handleClick}>Search</button>
+        </div>
       <Link to="/contact" className="Link">
         Contact
       </Link>

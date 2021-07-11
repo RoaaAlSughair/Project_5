@@ -40,7 +40,7 @@
   border-radius: 0.5rem;
 }
 
-.button {
+.button-search {
   font-family: sans-serif;
   background-color: #a24e12;
   color: white;
@@ -51,7 +51,8 @@
   border-radius: 0.5rem;
 }
 
-#search {
+.search {
   display: flex;
   align-items: center;
+  justify-content: space-around;
 }

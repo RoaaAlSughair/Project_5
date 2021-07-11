@@ -9,19 +9,3 @@
   font-family: sans-serif;
 }
 
-.Contact{
-  display: grid;
-  grid-template-columns: auto auto;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 5%;
-  width: fit-content;
-  padding: 1.5rem;
-  justify-content: center;
-  margin-left: 35%;
-  margin-bottom: 4rem;
-  margin-top: 2rem;
-  border-style: solid;
-  color: #a24e12;
-}
-

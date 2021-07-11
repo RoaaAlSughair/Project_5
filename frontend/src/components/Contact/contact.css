@@ -1,7 +1,64 @@
-.about {
-  /* border-style: none; */
+.contact{
+  display: grid;
+  grid-template-columns: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5%;
+  width: fit-content;
+  padding: 1.5rem;
+  justify-content: center;
+  margin-left: 35%;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+  color: #a24e12;
 }
 
-.contact {
-  /* border-style: none; */
+.table-contact td, .table-contact th {
+  padding: 1.5rem;
+  vertical-align: middle;
+  font-size: 1.25rem;
+}
+
+.table-contact {
+  font-family: sans-serif;
+  vertical-align: middle;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  border-style: solid;
+  border-radius: 0.5rem;
+  color: #a24e12;
+}
+
+.button {
+  font-family: sans-serif;
+  background-color: #a24e12;
+  color: white;
+  height: fit-content;
+  width: 6rem;
+  position: initial;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin-left: 9rem;
+}
+
+input {
+  font-family: sans-serif;
+  display: flex;
+  padding: 0.25rem;
+  margin: 0.5rem;
+  height: 2rem;
+  width: 15rem;
+  border-radius: 0.5rem;
+}
+
+textarea{
+  font-family: sans-serif;
+  display: flex;
+  padding: 0.25rem;
+  margin: 1rem;
+  /* height: 2rem; */
+  width: 15rem;
+  border-radius: 0.5rem;
 }
