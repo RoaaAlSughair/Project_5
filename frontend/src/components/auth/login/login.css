@@ -2,22 +2,57 @@
   display: grid;
   grid-template-columns: auto;
   gap: 5%;
-  width: 100%;
+  width: fit-content;
+  padding: 1.5rem;
   justify-content: center;
-  padding-top: 5%;
-  border-radius: 10px;
-  margin-left: 20px;
-  background-color: #bfc7d9;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  margin-left: 35%;
+  margin-bottom: 4rem;
+  margin-top: 2rem;
+  border-style: solid;
+  border-color: black;
+  color: #a24e12;
+
 }
-#button {
-  background-color: royalblue;
-  color: whitesmoke;
+.button {
+  font-family: sans-serif;
+  background-color: #a24e12;
+  color: white;
   height: 50px;
   width: 150px;
-  /* margin-left: 158px;
-    margin-top: 50px; */
   position: relative;
   left: 4%;
   border-radius: 8px;
+  margin-left: 5.5rem;
+}
+.table td, .table th {
+  padding: .75rem;
+  vertical-align: middle;
+}
+
+.table {
+  font-family: sans-serif;
+  vertical-align: middle;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: #a24e12;
+}
+
+input {
+  font-family: sans-serif;
+  display: flex;
+  padding: 4px;
+  margin: 6px;
+  height: 25px;
+  width: 230px;
+  border-radius: 8px;
+}
+.google{
+
+  height: 50px;
+  width: 150px;
+  position: relative;
+  left: 4%;
+  border-radius: 8px;
+  margin-left: 5.5rem;
 }
