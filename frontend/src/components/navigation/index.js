@@ -58,12 +58,19 @@ const Navigation = () => {
       <Link to="/authors" className="Link">
         Author
       </Link>
+      <Link to="/contact" style={{ textDecoration: "none" }}>
+        contact
+      </Link>
+      <Link to="/admin" style={{ textDecoration: "none" }}>
+        Admin page
+      </Link>
       <div id="search">
       <input
         type="text"
         className="searchBar"
         placeholder="Search book"
         onChange={handleChange}
+        style={{width: "20rem"}}
       />
         <button className="button" onClick={handleClick}>Search</button>
         </div>
