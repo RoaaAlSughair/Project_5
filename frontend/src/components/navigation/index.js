@@ -67,10 +67,14 @@ const Navigation = () => {
       <Link to="/contact" style={{ textDecoration: "none" }}>
         contact
       </Link>
+      <Link to="/admin" style={{ textDecoration: "none" }}>
+        Admin page
+      </Link>
       <input
         type="text"
         placeholder="Search book by title or author"
         onChange={handleChange}
+        style={{width: "20rem"}}
       />
       <span>
         <button onClick={handleClick}>Search</button>

@@ -7,6 +7,7 @@ import SignUp from "./../auth/signUp/index";
 import HomePage from "../homePage/index";
 import Comments from "./../../components/comments";
 import Contact from "../Contact/Contact";
+import Admin from "../adminPage/Admin";
 import AddBookPage from "../bookPage/AddBook";
 import EditBookPage from "../bookPage/EditBook";
 import DeleteBookPage from "../bookPage/deleteBook";
@@ -23,6 +24,7 @@ const Main = () => {
         <Route exact path="/home" render={() => <HomePage />} />
         <Route exact path="/Comments" render={() => <Comments />} />
         <Route exact path="/contact" render={() => <Contact />} />
+        <Route exact path="/admin" render={() => <Admin />} />
         <Route exact path="/AddBook" render={() => <AddBookPage />} />
         <Route exact path="/EditBook" render={() => <EditBookPage />} />
         <Route exact path="/DeleteBook" render={() => <DeleteBookPage />} />
