@@ -11,6 +11,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const history = useHistory();
+
   const register = () => {
     axios
       .post("http://localhost:5000/Register", {
@@ -23,19 +24,20 @@ const SignUp = () => {
         history.push("/login");
       })
       .catch((err) => {
-        setMessage(err.response.data);
+        console.log(err);
       });
   };
+
   return (
     <div className="register">
-      <h1>Register Page</h1>
+      <h1 style={{color: "#a24e12"}}>Register Page</h1>
       <table className="table">
         <tr>
-          <th>first name</th>
+          <th>First name</th>
           <th>
             <input
               type="text"
-              placeholder="please enter first name"
+              placeholder="First name here"
               onChange={(e) => {
                 setFirstName(e.target.value);
               }}
@@ -43,12 +45,12 @@ const SignUp = () => {
           </th>
         </tr>
         <tr>
-          <th>last name</th>
+          <th>Last name</th>
           <th>
             {" "}
             <input
               type="text"
-              placeholder="please enter last name"
+              placeholder="Last name here"
               onChange={(e) => {
                 setLastName(e.target.value);
               }}
@@ -56,11 +58,11 @@ const SignUp = () => {
           </th>
         </tr>
         <tr>
-          <th>email</th>
+          <th>Email</th>
           <th>
             <input
               type="email"
-              placeholder="please enter your email "
+              placeholder="Email here"
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
@@ -68,11 +70,11 @@ const SignUp = () => {
           </th>
         </tr>
         <tr>
-          <th>password</th>
+          <th>Password</th>
           <th>
             <input
               type="password"
-              placeholder="please enter your password "
+              placeholder="Password here"
               onChange={(e) => {
                 setPassword(e.target.value);
               }}

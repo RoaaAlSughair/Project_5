@@ -24,10 +24,8 @@ const Login = () => {
     axios
       .post("http://localhost:5000/login", { email, password })
       .then((result) => {
-        console.log(result);
         localStorage.setItem("token", result.data);
-        console.log("result.data.token" + result.data);
-        history.push("/AddBook");
+
         dispatch(setToken(result.data));
       })
       .catch((err) => {
@@ -37,13 +35,11 @@ const Login = () => {
   const ResponseGoogle = (response) => {
     setToken(response.accessToken);
     localStorage.setItem("token", response.accessToken);
-    history.push("/contact");
   };
   // const logOut = () => {
   //   localStorage.clear();
   //   localStorage.setItem()
   // }
-
   return (
     <div className="login">
       <h1>Login Page</h1>
@@ -81,25 +77,27 @@ const Login = () => {
         <tr>
           <td></td>
           <td>
-            <button onClick={signIn} id="button">
+            <button onClick={signIn} className="button">
               Login
             </button>
-          </td>
-        </tr>
-      </table>
-      <p>{message}</p>
-      <p>
-        Sign Up for website <Link to="/register">Register</Link>
-      </p>
-      <div>
+            <div className='google' >
+            <p > or </p>
         <GoogleLogin
           clientId="1018427859000-rr1mqigkk7fvghqfnh85ph78eru3lo8m.apps.googleusercontent.com"
           onSuccess={ResponseGoogle}
           onFailure={ResponseGoogle}
         />
       </div>
+          </td>
+        </tr>
+        <p>{message}</p>
+      <p>
+        Sign Up for website <Link to="/register">Register</Link>
+      </p>
+ 
+      </table>
+     
     </div>
   );
 };
-
 export default Login;

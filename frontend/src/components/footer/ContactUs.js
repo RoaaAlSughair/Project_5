@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import AboutUs from "./AboutUs";
 import "./footer.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -24,18 +25,9 @@ export default function ContactUs() {
   };
 
   return (
-    <>
-      <div className="About">
-        <h1> About </h1>
-        <ion-icon name="mail-outline">booksworms@yahoo.com</ion-icon>
-        <br></br>
-        <ion-icon name="call-outline">00962-798-777-222</ion-icon>
-        <br></br>
-        <ion-icon name="location-outline">
-          Jordan-Amman-abdullah ghosha street-abdullah bilding
-        </ion-icon>
-      </div>
-      <div className="input-group mb-3">
+    <div>
+      <div className="Contact">
+        <AboutUs />
         <input
           type="text"
           placeholder="full Name here "
@@ -62,6 +54,6 @@ export default function ContactUs() {
           send
         </button>
       </div>
-    </>
+      </div>
   );
 }
