@@ -25,17 +25,24 @@ const DeleteBookPage = () => {
   };
 
   return (
-    <div>
+    <div className="deleteBook">
+          <h1 style={{color: "#a24e12", marginLeft: "33rem",  marginTop: "2rem"}}>Delete book</h1>
+          <table className='tableDelete'>
+          <tr><th>Book Id</th>
+          <th>
       <input
         type="Number"
         placeholder="book_id here "
         onChange={(e) => {
           setBook_id(e.target.value);
         }}
-      />
-      <button onClick={deleteBook}>
+      /></th></tr>
+      <tr>
+      <th></th>
+      <th>
+      <button onClick={deleteBook} className='delete-button'>
         Delete Book
-      </button>
+      </button></th></tr></table>
     </div>
   );
 };

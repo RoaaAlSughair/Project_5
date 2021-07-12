@@ -35,17 +35,25 @@ function AddCategory() {
       });
   };
   return (
-    <div className="input-group mb-3">
+    <div className="add-category">
+              <h1 style={{color: "#a24e12", marginLeft: "33rem",  marginTop: "2rem"}}>Add Category</h1>
+
+    <table className='categoryTable'>
+    <tr><th>Add category</th>
+    <th>
       <input
         type="text"
         placeholder="category here "
         onChange={(e) => {
           setCategory(e.target.value);
         }}
-      />
-      <button className="btn-check" onClick={AddCategories}>
+      /></th></tr>
+      <tr>
+      <th></th>
+      <th>
+      <button className="category-button" onClick={AddCategories} >
         Add Category
-      </button>
+      </button></th></tr></table>
     </div>
   );
 }
