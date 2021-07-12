@@ -1,56 +1,50 @@
 import React, { useState } from "react";
-import Axios from "axios";
+import { useHistory } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { setResult } from "../../reducers/SearchResult";
+import Axios from "axios";
 import "./navigation.css";
-// import { searchBook } from "../../reducers/navigation";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Navigation = () => {
-  //   const dispatch = useDispatch();
+  const history = useHistory();
+  const dispatch = useDispatch();
 
-  const [search, setSearch] = useState("");
+  const [KeyWord, setKeyWord] = useState("");
 
-  // I'm not sure if it's necessary for navigation to have a reducer
-  //   const state = useSelector((state) => {
-  //     return {
-  //       searched_book: state.navigation.searched_book,
-  //     };
-  //   });
-
-  const handleChange = (e) => {
-    setSearch(e.target.value);
-  };
+  const state = useSelector((state) => {
+    return {
+      searched_book: state.searchResult.result,
+    };
+  });
 
   const handleClick = (e) => {
-    if (!search) {
+    if (!KeyWord) {
       e.preventDefault();
     } else {
-      // How to get all authors' names for comparison?
-      // if search value is an author, then search books by author. Otherwise, search book by title
-      if (search === "author_name") {
-        Axios.get(`http://localhost:5000/book/search_author?author=${search}`)
-          .then((res) => {
-            // dispatch(searchBook(res.data));
-          })
-          .catch((err) => {
-            throw err;
-          });
-      } else {
-        Axios.get(`http://localhost:5000/book/search_title?title=${search}`)
-          .then((res) => {
-            // dispatch(searchBook(res.data));
-          })
-          .catch((err) => {
-            throw err;
-          });
-      }
+      Axios.get(`http://localhost:5000/book/search?KeyWord=${KeyWord}`).then(
+        (res) => {
+          dispatch(setResult(res.data));
+          history.push("/result");
+        }
+      );
     }
   };
 
   return (
     <div className="NavBar">
       <Link to="/home" className="Link">
-        <span style={{color: "#a24e12", fontSize: "2rem", fontFamily: "math", fontWeight: "bolder"}}>Home</span>
+        <span
+          style={{
+            color: "#a24e12",
+            fontSize: "2rem",
+            fontFamily: "math",
+            fontWeight: "bolder",
+          }}
+        >
+          Home
+        </span>
       </Link>
       <Link to="/Category" className="Link">
         Category
@@ -66,7 +60,9 @@ const Navigation = () => {
           type="text"
           className="searchBar"
           placeholder="Search book"
-          onChange={handleChange}
+          onChange={(e) => {
+            setKeyWord(e.target.value);
+          }}
         />
         <button className="button-search" onClick={handleClick}>
           Search
@@ -81,7 +77,6 @@ const Navigation = () => {
       <Link to="/Register" className="Link">
         Register
       </Link>
-      {/* Should search results be displayed in main component? Or should it be redirected into a new page? */}
     </div>
   );
 };
