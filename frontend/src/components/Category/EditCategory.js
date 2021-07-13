@@ -27,25 +27,45 @@ function EditCategory() {
   };
 
   return (
-    <div className="input-group mb-3">
-      <input
-        type="Number"
-        placeholder="category_id here "
-        onChange={(e) => {
-          setCategory_id(e.target.value);
-        }}
-      />
-      <input
-        type="text"
-        placeholder="category here "
-        onChange={(e) => {
-          setCategory(e.target.value);
-        }}
-      />
-
-      <button className="btn-check" onClick={EditCategories}>
+    <div className="EditCategory">
+      <h1 style={{ color: "#a24e12", marginLeft: "32rem", marginTop: "2rem" }}>
         Edit Category
-      </button>
+      </h1>
+      <table className="tableEditCategory">
+        <tr>
+          {" "}
+          <th>Category Id</th>
+          <th>
+            <input
+              type="Number"
+              placeholder="category_id here "
+              onChange={(e) => {
+                setCategory_id(e.target.value);
+              }}
+            />
+          </th>
+        </tr>
+        <tr>
+          <th>Category</th>
+          <th>
+            <input
+              type="text"
+              placeholder="category here "
+              onChange={(e) => {
+                setCategory(e.target.value);
+              }}
+            />
+          </th>
+        </tr>
+        <tr>
+          <th></th>
+          <th>
+            <button className="EditCategoryButton" onClick={EditCategories}>
+              Edit Category
+            </button>
+          </th>
+        </tr>
+      </table>
     </div>
   );
 }

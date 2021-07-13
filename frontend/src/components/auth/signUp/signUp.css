@@ -29,12 +29,13 @@
   color: #a24e12;
 }
 
-#button {
+.register-button {
   font-family: sans-serif;
   background-color: #a24e12;
   color: white;
   height: 3rem;
   width: 10rem;
+  margin-left: 5rem;
   position: relative;
   border-radius: 0.5rem;
 }

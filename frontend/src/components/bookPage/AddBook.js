@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./bookPage.css";
 
 function AddBookPage() {
@@ -50,68 +49,97 @@ function AddBookPage() {
       });
   };
   return (
-    <div className="input-group mb-3">
-      <input
+    <div className="AddBook" >
+      <h1 style={{color: "#a24e12", marginLeft: "33rem"}}>Add book</h1>
+      <table className="table">
+        <tr>
+          <th>URL picture</th>
+          <th> <input
         type="text"
         placeholder="URL picture here "
         onChange={(e) => {
           setBook_img(e.target.value);
         }}
       />
-      <input
+      </th>
+      </tr>
+      <tr>
+      <th>Title</th>
+          <th><input
         type="text"
         placeholder="title here "
         onChange={(e) => {
           setTitle(e.target.value);
         }}
-      />
-      <input
+      /></th>
+      </tr>
+      <tr>
+      <th>Description</th>
+          <th> <input
         type="text"
         placeholder="description here "
         onChange={(e) => {
           setDescription(e.target.value);
         }}
-      />
-      <input
+      /></th>
+     </tr>
+     <tr>
+     <th>Publisher</th>
+          <th> <input
         type="text"
         placeholder="publisher here "
         onChange={(e) => {
           setPublisher(e.target.value);
         }}
-      />
+      /></th>
+     </tr>
+     <tr><th>Edition</th>
+          <th>
       <input
         type="text"
         placeholder="edition here "
         onChange={(e) => {
           setEdition(e.target.value);
         }}
-      />
+      /></th></tr>
+      <tr><th>pages Number</th>
+          <th>
       <input
         type="Number"
         placeholder="pages here "
         onChange={(e) => {
           setPages(e.target.value);
         }}
-      />
+      /></th></tr>
+       <tr><th>Price</th>
+          <th>
       <input
         type="num"
         placeholder="price here "
         onChange={(e) => {
           setPrice(e.target.value);
         }}
-      />
-      <input
+      /></th></tr>
+       <tr>
+       <th>Author</th>
+          <th><input
         type="text"
         placeholder="author here "
         onChange={(e) => {
           setAuthor(e.target.value);
         }}
-      />
-
-      <button className="btn-check" onClick={AddBook}>
+      /></th></tr>
+<tr>
+<th></th>
+          <th>
+      <button onClick={AddBook} className= "button-Add">
         Add Book
       </button>
-    </div>
+      </th>
+
+      </tr>
+      </table>
+      </div>
   );
 }
 

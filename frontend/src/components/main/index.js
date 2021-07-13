@@ -15,6 +15,7 @@ import AddCategory from "../Category/AddCategory";
 import EditCategory from "../Category/EditCategory";
 import DeleteCategory from "../Category/DeleteCategory";
 import Category from "../bookPage/Category";
+import SearchResult from "../searchResult/SearchResult";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Author from "../bookPage/Author";
 
@@ -37,6 +38,7 @@ const Main = () => {
         <Route exact path="/EditCategory" render={() => <EditCategory />} />
         <Route exact path="/DeleteCategory" render={() => <DeleteCategory />} />
         <Route exact path="/authors" render={() => <Author />} />
+        <Route exact path="/result" render={() => <SearchResult />} />
         {/* <Route exact path="/Register" render={() => <Category />} /> 
         <Route exact path="/Register" render={() => <Authors />} />  */}
       </div>

@@ -1,59 +1,37 @@
 import React, { useState } from "react";
-import Axios from "axios";
+import { useHistory } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { setResult } from "../../reducers/SearchResult";
+import Axios from "axios";
 import "./navigation.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import jwt from "jsonwebtoken";
-// const jwt_decode = require('jwt-decode');
-import { HideAt, ShowAt } from "react-hide-show-utils";
 const token = localStorage.getItem("token");
 const decoded = jwt.decode(token);
 
-console.log("token", token);
-// console.log("decoded.role_id", decoded.role_id);
-
-
 const Navigation = () => {
-  const [search, setSearch] = useState("");
-  // const state = useSelector((state) => {
-  //   return {
-  //     token: state.login.token,
-  //   };
-  // });
-  // useEffect(() => {
-  //   effect
-  //   return () => {
-  //     cleanup
-  //   }
-  // }, [input])
-  const handleChange = (e) => {
-    setSearch(e.target.value);
-  };
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const [KeyWord, setKeyWord] = useState("");
+
+  const state = useSelector((state) => {
+    return {
+      searched_book: state.searchResult.result,
+    };
+  });
 
   const handleClick = (e) => {
-    if (!search) {
+    if (!KeyWord) {
       e.preventDefault();
     } else {
-      // How to get all authors' names for comparison?
-      // if search value is an author, then search books by author. Otherwise, search book by title
-      if (search === "author_name") {
-        Axios.get(`http://localhost:5000/book/search_author?author=${search}`)
-          .then((res) => {
-            // dispatch(searchBook(res.data));
-          })
-          .catch((err) => {
-            throw err;
-          });
-      } else {
-        Axios.get(`http://localhost:5000/book/search_title?title=${search}`)
-          .then((res) => {
-            // dispatch(searchBook(res.data));
-          })
-          .catch((err) => {
-            throw err;
-          });
-      }
+      Axios.get(`http://localhost:5000/book/search?KeyWord=${KeyWord}`).then(
+        (res) => {
+          dispatch(setResult(res.data));
+          history.push("/result");
+        }
+      );
     }
   };
   // const token1 = localStorage.getItem("token");
@@ -96,7 +74,9 @@ const Navigation = () => {
           type="text"
           className="searchBar"
           placeholder="Search book"
-          onChange={handleChange}
+          onChange={(e) => {
+            setKeyWord(e.target.value);
+          }}
         />
         <button className="button-search" onClick={handleClick}>
           Search
@@ -111,7 +91,6 @@ const Navigation = () => {
       <Link to="/Register" className="Link">
         Register
       </Link>
-      {/* Should search results be displayed in main component? Or should it be redirected into a new page? */}
     </div>
   );
 };
