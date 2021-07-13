@@ -6,6 +6,9 @@ import { setResult } from "../../reducers/SearchResult";
 import Axios from "axios";
 import "./navigation.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import jwt from "jsonwebtoken";
+const token = localStorage.getItem("token");
+const decoded = jwt.decode(token);
 
 const Navigation = () => {
   const history = useHistory();
@@ -31,6 +34,7 @@ const Navigation = () => {
       );
     }
   };
+  // const token1 = localStorage.getItem("token");
 
   return (
     <div className="NavBar">
@@ -52,9 +56,19 @@ const Navigation = () => {
       <Link to="/authors" className="Link">
         Author
       </Link>
-      <Link to="/admin" className="Link">
-        Admin Page
-      </Link>
+      {/* <Link to="/admin" className="Link">
+          Admin Page
+        </Link> */}
+        
+      {token&&decoded.role_id === 1 ?  (
+        
+        <Link to="/admin" className="Link" style={{display:"inherit"}}>
+          Admin Page
+        </Link>
+      ) : ""}
+   
+    
+
       <div className="search">
         <input
           type="text"

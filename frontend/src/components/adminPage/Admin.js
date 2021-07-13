@@ -7,7 +7,7 @@ export default function Admin() {
   return (
     <>
       <BookPage />
-      <CategoryPage/>
+      <CategoryPage />
     </>
   );
 }
