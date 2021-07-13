@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import "./bookPage.css";
 
 function EditBookPage() {
+  const [data, setData] = useState([]);
   const [book_id, setBook_id] = useState(0);
   const [book_img, setBook_img] = useState();
   const [title, setTitle] = useState("");
@@ -14,11 +15,22 @@ function EditBookPage() {
   const [price, setPrice] = useState("");
   const [author, setAuthor] = useState("");
   const state = useSelector((state) => {
-    // specify which state to subscribe to (state tree => reducer => state name )
     return {
       token: state.login.token,
     };
   });
+  const getBookById=()=>{
+    axios.get(`http://localhost:5000/book/${book_id}`)
+    .then((result)=>{
+      setData(result.data[0]);
+     console.log(result.data[0].book_img)
+  
+    })
+    .catch((err)=>{
+      throw err
+    })
+  
+  }
   const EditBook = () => {
     axios.put(
       `http://localhost:5000/book/${book_id}`,
@@ -44,11 +56,29 @@ function EditBookPage() {
     <div className="editBook" >
       <h1 style={{color: "#a24e12", marginLeft: "33rem"}}>Edit book</h1>
       <table className="table">
+      <tr><th>Book Id</th>
+      <th> <input
+        type="Number"
+        placeholder="book_id here "
+        onChange={(e) => {
+          setBook_id(e.target.value);
+        }}
+      /></th></tr>
+      <tr>
+<th></th>
+          <th>
+      <button onClick={getBookById} className= "button-Add">
+        get Book
+      </button>
+      </th>
+
+      </tr>
         <tr>
           <th>URL picture</th>
           <th> <input
         type="text"
         placeholder="URL picture here "
+        value={data.book_img}
         onChange={(e) => {
           setBook_img(e.target.value);
         }}
@@ -60,6 +90,7 @@ function EditBookPage() {
           <th><input
         type="text"
         placeholder="title here "
+        value={data.title}
         onChange={(e) => {
           setTitle(e.target.value);
         }}
@@ -70,6 +101,7 @@ function EditBookPage() {
           <th> <input
         type="text"
         placeholder="description here "
+        value={data.description}
         onChange={(e) => {
           setDescription(e.target.value);
         }}
@@ -80,6 +112,7 @@ function EditBookPage() {
           <th> <input
         type="text"
         placeholder="publisher here "
+        value={data.publisher}
         onChange={(e) => {
           setPublisher(e.target.value);
         }}
@@ -90,6 +123,7 @@ function EditBookPage() {
       <input
         type="text"
         placeholder="edition here "
+        value={data.edition}
         onChange={(e) => {
           setEdition(e.target.value);
         }}
@@ -99,6 +133,7 @@ function EditBookPage() {
       <input
         type="Number"
         placeholder="pages here "
+        value={data.pages}
         onChange={(e) => {
           setPages(e.target.value);
         }}
@@ -108,6 +143,7 @@ function EditBookPage() {
       <input
         type="Number"
         placeholder="price here "
+        value={data.price}
         onChange={(e) => {
           setPrice(e.target.value);
         }}
@@ -117,6 +153,7 @@ function EditBookPage() {
           <th><input
         type="text"
         placeholder="author here "
+        value={data.author}
         onChange={(e) => {
           setAuthor(e.target.value);
         }}
@@ -125,7 +162,7 @@ function EditBookPage() {
 <th></th>
           <th>
       <button onClick={EditBook} className= "button-Add">
-        Add Book
+       Edit Book
       </button>
       </th>
 
