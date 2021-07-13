@@ -6,14 +6,6 @@ const getAllBooks = (req, res) => {
     res.status(201).json(results);
   });
 };
-const getBooksById = (req, res) => {
-  const bookId = req.params.book_id;
-  const query = `SELECT * FROM book WHERE book_id = ${bookId};`;
-  connection.query(query, (err, results) => {
-    if (err) throw err;
-    res.status(201).json(results);
-  });
-};
 const getBooksByCategory = (req, res) => {
   const category = req.params.category_id;
   const query = `SELECT * FROM book WHERE category_id = ${category};`;
@@ -90,9 +82,20 @@ const updateBooksByID = (req, res) => {
     res.json(result);
   });
 };
+
+
+//   const data = [title];
+//   const query = `SELECT * FROM book WHERE title = ?;`;
+//   connection.query(query, data, (err, result) => {
+//     if (err) {
+//       throw err;
+//     }
+//     res.status(200).json(result);
+//   });
+// };
 const getBook = (req, res) => {
   const KeyWord = req.query.KeyWord;
-  const data = [KeyWord, KeyWord];
+const data = [KeyWord, KeyWord];
   const query = `SELECT * FROM book WHERE title = ? OR author = ?;`;
   connection.query(query, data, (err, result) => {
     if (err) {
@@ -107,6 +110,5 @@ module.exports = {
   deleteBooksByID,
   addNewBooks,
   updateBooksByID,
-  getBooksById
   getBook,
 };
