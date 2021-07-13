@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./bookPage.css";
-
 export default function Category() {
   const [data, setData] = useState([]);
   const categories = (x) => {
@@ -30,7 +29,6 @@ export default function Category() {
             categories(2);
           }}alt=''
         />
-
         <img
           src="https://www.ktaab.com/wp-content/uploads/2015/04/1-71.png"
           onClick={() => {
@@ -74,7 +72,6 @@ export default function Category() {
           }}alt=''
         />
       </div>
-
       {data.map((elem, index) => {
         return (
           <div key={index} book_id={elem.book_id} className="book">
@@ -92,7 +89,7 @@ export default function Category() {
               count={5}
               onClick={ratingChanged}
               size={24}
-              activeColor="#ffd700"
+              activeColor="#FFD700"
               isHalf={true}
             /> */}
           </div>

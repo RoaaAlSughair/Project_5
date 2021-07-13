@@ -16,6 +16,12 @@
   color: black;
   width: 35rem;
 }
+.author{
+  display: flex;
+  gap: 20px;
+  border-style: solid;
+}
+
 .table {
   font-family: sans-serif;
   vertical-align: middle;

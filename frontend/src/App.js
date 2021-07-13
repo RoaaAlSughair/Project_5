@@ -12,7 +12,6 @@ const App = () => {
   const [token, setToken] = useState("");
   return (
     <div className="App">
-     
       <Main />
       <Footer />
       {/* <BookPage /> */}

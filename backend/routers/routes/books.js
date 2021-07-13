@@ -10,16 +10,19 @@ const {
   deleteBooksByID,
   addNewBooks,
   updateBooksByID,
+ update_edit_book
   getBooksByAuthor,
   getBookByTitle,
   getBooksById,
+
+  getBook,
+
 } = require("./../controllers/books");
 
 bookRouter.get("/", getAllBooks);
 bookRouter.get("/:book_id",getBooksById)
 bookRouter.get("/Category/:category_id", getBooksByCategory);
-bookRouter.get("/search_title", getBookByTitle);
-bookRouter.get("/search_author", getBooksByAuthor);
+bookRouter.get("/search", getBook);
 bookRouter.delete(
   "/:book_id",
   authentication,
