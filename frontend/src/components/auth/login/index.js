@@ -6,16 +6,14 @@ import { setToken } from "../../../reducers/login";
 import { GoogleLogin } from "react-google-login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./login.css";
-
+import jwt_decode from "jwt-decode";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
-  // useSelector gives us access to the store
   const state = useSelector((state) => {
-    // specify which state to subscribe to (state tree => reducer => state name )
     return {
       token: state.login.token,
     };
@@ -25,8 +23,19 @@ const Login = () => {
       .post("http://localhost:5000/login", { email, password })
       .then((result) => {
         localStorage.setItem("token", result.data);
-        history.push("/admin");
-        dispatch(setToken(result.data));
+        // console.log("result.data", result.data);
+
+        var tokenBeforeDecode = result.data;
+        var decoded = jwt_decode(tokenBeforeDecode);
+
+        // console.log(decoded.role_id);
+        if (decoded.role_id === 1) {
+          history.push("/authors");
+          dispatch(setToken(result.data));
+        } else if (decoded.role_id === 2) {
+          history.push("/contact");
+          dispatch(setToken(result.data));
+        }
       })
       .catch((err) => {
         setMessage(err.response.data);
@@ -36,10 +45,6 @@ const Login = () => {
     setToken(response.accessToken);
     localStorage.setItem("token", response.accessToken);
   };
-  // const logOut = () => {
-  //   localStorage.clear();
-  //   localStorage.setItem()
-  // }
   return (
     <div className="login">
       <h1>Login Page</h1>
@@ -80,23 +85,21 @@ const Login = () => {
             <button onClick={signIn} className="button">
               Login
             </button>
-            <div className='google' >
-            <p > or </p>
-        <GoogleLogin
-          clientId="1018427859000-rr1mqigkk7fvghqfnh85ph78eru3lo8m.apps.googleusercontent.com"
-          onSuccess={ResponseGoogle}
-          onFailure={ResponseGoogle}
-        />
-      </div>
+            <div className="google">
+              <p> or </p>
+              <GoogleLogin
+                clientId="1018427859000-rr1mqigkk7fvghqfnh85ph78eru3lo8m.apps.googleusercontent.com"
+                onSuccess={ResponseGoogle}
+                onFailure={ResponseGoogle}
+              />
+            </div>
           </td>
         </tr>
         <p>{message}</p>
-      <p>
-        Sign Up for website <Link to="/register">Register</Link>
-      </p>
- 
+        <p>
+          Sign Up for website <Link to="/register">Register</Link>
+        </p>
       </table>
-     
     </div>
   );
 };

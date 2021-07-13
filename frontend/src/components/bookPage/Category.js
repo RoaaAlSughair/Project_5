@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./bookPage.css";
-
 export default function Category() {
-  const [category_id, setCategory_id] = useState(4);
   const [data, setData] = useState([]);
-  const register = (x) => {
+  const categories = (x) => {
     axios
       .get(`http://localhost:5000/book/Category/${x}`)
       .then((result) => {
@@ -24,60 +21,58 @@ export default function Category() {
         <img
           src="https://www.ktaab.com/wp-content/uploads/2015/04/1-31.png"
           onClick={() => {
-            register(1);
-          }}
+            categories(1);
+          }}alt=''
         />
         <img
           src="https://www.ktaab.com/wp-content/uploads/2015/04/1-61.png"
           onClick={() => {
-            register(2);
-          }}
+            categories(2);
+          }}alt=''
         />
-
         <img
           src="https://www.ktaab.com/wp-content/uploads/2015/04/1-71.png"
           onClick={() => {
-            register(3);
-          }}
+            categories(3);
+          }}alt=''
         />
         <img
           src="https://www.ktaab.com/wp-content/uploads/2015/04/1-41.png"
           onClick={() => {
-            register(4);
-          }}
+            categories(4);
+          }}alt=''
         />
         <img
           src="https://www.ktaab.com/wp-content/uploads/2015/04/11.png"
           onClick={() => {
-            register(5);
-          }}
+            categories(5);
+          }}alt=''
         />
         <img
           src="https://www.ktaab.com/wp-content/uploads/2015/04/1-91.png"
           onClick={() => {
-            register(6);
-          }}
+            categories(6);
+          }}alt=''
         />
         <img
           src="https://www.ktaab.com/wp-content/uploads/2015/04/1-12.png"
           onClick={() => {
-            register(7);
-          }}
+            categories(7);
+          }}alt=''
         />
         <img
           src="https://www.ktaab.com/wp-content/uploads/2015/04/%D8%B3%D8%A7%D8%AE%D8%B1.png"
           onClick={() => {
-            register(8);
-          }}
+            categories(8);
+          }}alt=''
         />
         <img
           src="https://www.ktaab.com/wp-content/uploads/2015/04/deen.png"
           onClick={() => {
-            register(9);
-          }}
+            categories(9);
+          }}alt=''
         />
       </div>
-
       {data.map((elem, index) => {
         return (
           <div key={index} book_id={elem.book_id} className="book">
@@ -95,7 +90,7 @@ export default function Category() {
               count={5}
               onClick={ratingChanged}
               size={24}
-              activeColor="#ffd700"
+              activeColor="#FFD700"
               isHalf={true}
             /> */}
           </div>

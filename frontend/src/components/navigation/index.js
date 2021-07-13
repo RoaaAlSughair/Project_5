@@ -1,22 +1,32 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./navigation.css";
-// import { searchBook } from "../../reducers/navigation";
 import "bootstrap/dist/css/bootstrap.min.css";
+import jwt from "jsonwebtoken";
+// const jwt_decode = require('jwt-decode');
+import { HideAt, ShowAt } from "react-hide-show-utils";
+const token = localStorage.getItem("token");
+const decoded = jwt.decode(token);
+
+console.log("token", token);
+// console.log("decoded.role_id", decoded.role_id);
+
 
 const Navigation = () => {
-  //   const dispatch = useDispatch();
-
   const [search, setSearch] = useState("");
-
-  // I'm not sure if it's necessary for navigation to have a reducer
-  //   const state = useSelector((state) => {
-  //     return {
-  //       searched_book: state.navigation.searched_book,
-  //     };
-  //   });
-
+  // const state = useSelector((state) => {
+  //   return {
+  //     token: state.login.token,
+  //   };
+  // });
+  // useEffect(() => {
+  //   effect
+  //   return () => {
+  //     cleanup
+  //   }
+  // }, [input])
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
@@ -46,11 +56,21 @@ const Navigation = () => {
       }
     }
   };
+  // const token1 = localStorage.getItem("token");
 
   return (
     <div className="NavBar">
       <Link to="/home" className="Link">
-        <span style={{color: "#a24e12", fontSize: "2rem", fontFamily: "math", fontWeight: "bolder"}}>Home</span>
+        <span
+          style={{
+            color: "#a24e12",
+            fontSize: "2rem",
+            fontFamily: "math",
+            fontWeight: "bolder",
+          }}
+        >
+          Home
+        </span>
       </Link>
       <Link to="/Category" className="Link">
         Category
@@ -58,18 +78,30 @@ const Navigation = () => {
       <Link to="/authors" className="Link">
         Author
       </Link>
-      <Link to="/admin" className="Link">
-        Admin Page
-      </Link>
+      {/* <Link to="/admin" className="Link">
+          Admin Page
+        </Link> */}
+        
+      {token&&decoded.role_id === 1 ?  (
+        
+        <Link to="/admin" className="Link" style={{display:"inherit"}}>
+          Admin Page
+        </Link>
+      ) : ""}
+   
+    
+
       <div className="search">
-      <input
-        type="text"
-        className="searchBar"
-        placeholder="Search book"
-        onChange={handleChange}
-      />
-        <button className="button-search" onClick={handleClick}>Search</button>
-        </div>
+        <input
+          type="text"
+          className="searchBar"
+          placeholder="Search book"
+          onChange={handleChange}
+        />
+        <button className="button-search" onClick={handleClick}>
+          Search
+        </button>
+      </div>
       <Link to="/contact" className="Link">
         Contact
       </Link>
