@@ -8,7 +8,7 @@ export default function Author() {
   const [data, setData] = useState([]);
   const authors = (x) => {
     axios
-       .get(`http://localhost:5000/book/search_author?author=${x}`)
+       .get(`http://localhost:5000/book/search?KeyWord=${x}`)
       .then((result) => {
         // console.log(result.data);
         setData(result.data);

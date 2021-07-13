@@ -3,6 +3,7 @@ import axios from "axios";
 import "./bookPage.css";
 export default function Category() {
   const [data, setData] = useState([]);
+  const [show, setShow] = useState(false);
   const categories = (x) => {
     axios
       .get(`http://localhost:5000/book/Category/${x}`)
@@ -16,63 +17,73 @@ export default function Category() {
   console.log(data);
   return (
     <>
-      <div>
+      {!show ?( <div>
         <img
           src="https://www.ktaab.com/wp-content/uploads/2015/04/1-31.png"
           onClick={() => {
             categories(1);
+            setShow(true)
           }}alt=''
         />
         <img
           src="https://www.ktaab.com/wp-content/uploads/2015/04/1-61.png"
           onClick={() => {
             categories(2);
+            setShow(true)
           }}alt=''
         />
         <img
           src="https://www.ktaab.com/wp-content/uploads/2015/04/1-71.png"
           onClick={() => {
             categories(3);
+            setShow(true)
           }}alt=''
         />
         <img
           src="https://www.ktaab.com/wp-content/uploads/2015/04/1-41.png"
           onClick={() => {
             categories(4);
+            setShow(true)
           }}alt=''
         />
         <img
           src="https://www.ktaab.com/wp-content/uploads/2015/04/11.png"
           onClick={() => {
             categories(5);
+            setShow(true)
           }}alt=''
         />
         <img
           src="https://www.ktaab.com/wp-content/uploads/2015/04/1-91.png"
           onClick={() => {
             categories(6);
+            setShow(true)
           }}alt=''
         />
         <img
           src="https://www.ktaab.com/wp-content/uploads/2015/04/1-12.png"
           onClick={() => {
             categories(7);
+            setShow(true)
           }}alt=''
         />
         <img
           src="https://www.ktaab.com/wp-content/uploads/2015/04/%D8%B3%D8%A7%D8%AE%D8%B1.png"
           onClick={() => {
             categories(8);
+            setShow(true)
           }}alt=''
         />
         <img
           src="https://www.ktaab.com/wp-content/uploads/2015/04/deen.png"
           onClick={() => {
             categories(9);
+            setShow(true)
           }}alt=''
         />
       </div>
-      {data.map((elem, index) => {
+      ):("")}
+      {show? (<>{data.map((elem, index) => {
         return (
           <div key={index} book_id={elem.book_id} className="book">
             <img
@@ -94,7 +105,9 @@ export default function Category() {
             /> */}
           </div>
         );
-      })}
+      })}</>):("")}
+  {show ? (<button onClick={()=>{setShow(false)}} >Back To Category</button>):("")}    
+
     </>
   );
 }
