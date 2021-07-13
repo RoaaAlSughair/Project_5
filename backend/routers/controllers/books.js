@@ -8,6 +8,15 @@ const getAllBooks = (req, res) => {
   });
 };
 
+const getBooksById = (req, res) => {
+  const bookId = req.params.book_id;
+  const query = `SELECT * FROM book WHERE book_id = ${bookId};`;
+  connection.query(query, (err, results) => {
+    if (err) throw err;
+    res.status(201).json(results);
+  });
+};
+
 const getBooksByCategory = (req, res) => {
   const category = req.params.category_id;
   const query = `SELECT * FROM book WHERE category_id = ${category};`;
@@ -129,4 +138,5 @@ module.exports = {
   updateBooksByID,
   getBookByTitle,
   getBooksByAuthor,
+  getBooksById
 };

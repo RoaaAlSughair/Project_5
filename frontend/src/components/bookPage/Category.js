@@ -8,7 +8,6 @@ export default function Category() {
     axios
       .get(`http://localhost:5000/book/Category/${x}`)
       .then((result) => {
-        // console.log(result.data);
         setData(result.data);
       })
       .catch((err) => {
