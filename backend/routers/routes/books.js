@@ -1,24 +1,16 @@
 const express = require("express");
 const bookRouter = express.Router();
-
 const authentication = require("../middlewares/authentication");
 const authorization = require("../middlewares/authorization");
-
 const {
   getAllBooks,
   getBooksByCategory,
   deleteBooksByID,
   addNewBooks,
   updateBooksByID,
- update_edit_book
-  getBooksByAuthor,
-  getBookByTitle,
   getBooksById,
-
   getBook,
-
 } = require("./../controllers/books");
-
 bookRouter.get("/", getAllBooks);
 bookRouter.get("/:book_id",getBooksById)
 bookRouter.get("/Category/:category_id", getBooksByCategory);
@@ -36,5 +28,4 @@ bookRouter.put(
   authorization("admin"),
   updateBooksByID
 );
-
 module.exports = bookRouter;
