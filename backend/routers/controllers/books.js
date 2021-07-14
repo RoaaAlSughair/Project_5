@@ -107,6 +107,6 @@ module.exports = {
   deleteBooksByID,
   addNewBooks,
   updateBooksByID,
-  getBooksById
+  getBooksById,
   getBook,
 };
