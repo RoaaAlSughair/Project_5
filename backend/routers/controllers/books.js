@@ -6,14 +6,7 @@ const getAllBooks = (req, res) => {
     res.status(201).json(results);
   });
 };
-const getBooksById = (req, res) => {
-  const bookId = req.params.book_id;
-  const query = `SELECT * FROM book WHERE book_id = ${bookId};`;
-  connection.query(query, (err, results) => {
-    if (err) throw err;
-    res.status(201).json(results);
-  });
-};
+
 const getBooksByCategory = (req, res) => {
   const category = req.params.category_id;
   const query = `SELECT * FROM book WHERE category_id = ${category};`;
@@ -88,6 +81,14 @@ const updateBooksByID = (req, res) => {
   connection.query(query, data, (err, result) => {
     if (err) throw err;
     res.json(result);
+  });
+};
+const getBooksById = (req, res) => {
+  const bookId = req.params.book_id;
+  const query = `SELECT * FROM book WHERE book_id = ${bookId};`;
+  connection.query(query, (err, results) => {
+    if (err) throw err;
+    res.status(201).json(results);
   });
 };
 const getBook = (req, res) => {
