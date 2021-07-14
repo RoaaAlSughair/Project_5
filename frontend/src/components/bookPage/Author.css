@@ -1,0 +1,32 @@
+
+.author{
+    border-style: solid;
+    height: fit-content;
+    padding: 1rem;
+    border-color: #a24e12;
+    display: inline-block;
+    text-align: right;
+    margin-top: 30px;
+    margin-left: 32px;
+    /* padding: 20px; */
+  }
+  .authorDetails{
+    border-style: solid;
+    height: fit-content;
+    padding: 1rem;
+    border-color: #a24e12;
+    display: inline-block;
+    text-align: right;
+    margin-top: 30px;
+    margin-left: 32px;
+    /* border-style: solid;
+    height: fit-content;
+    padding: 1rem;
+    border-color: #a24e12;
+    display: inline-block;
+    text-align: right; */
+  }
+  .imgAuthorDetails{
+      height: 200px;
+      width: 200px;
+  }

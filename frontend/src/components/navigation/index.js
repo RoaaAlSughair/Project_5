@@ -42,7 +42,6 @@ const Navigation = () => {
         <span
           style={{
             color: "#a24e12",
-            fontSize: "2rem",
             fontFamily: "math",
             fontWeight: "bolder",
           }}
@@ -68,6 +67,10 @@ const Navigation = () => {
       ) : ""}
    
     
+          <Link to="/contact" className="Link">
+            Contact
+          </Link>
+         
 
       <div className="search">
         <input
@@ -82,15 +85,27 @@ const Navigation = () => {
           Search
         </button>
       </div>
-      <Link to="/contact" className="Link">
-        Contact
-      </Link>
-      <Link to="/login" className="Link">
+      {!token ?  (
+       <> 
+        <Link to="/login" className="Link">
         Log In
       </Link>
       <Link to="/Register" className="Link">
-        Register
-      </Link>
+      Register
+    </Link>
+    </>
+      ) : 
+      <Link to="/login" className="Link">
+      Log out
+    </Link>
+      }
+
+
+
+
+      
+      
+      
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./bookPage.css";
+import "./../Category/Category.css";
 export default function Category() {
   const [data, setData] = useState([]);
   const [show, setShow] = useState(false);
@@ -80,22 +80,21 @@ export default function Category() {
             categories(9);
             setShow(true)
           }}alt=''
-        />
+          />
       </div>
       ):("")}
       {show? (<>{data.map((elem, index) => {
         return (
-          <div key={index} book_id={elem.book_id} className="book">
+          <div key={index} book_id={elem.book_id} className="categoryDetails">
             <img
-              className="book_image"
+              className="imgCategoryDetails"
               src={elem.book_img}
               alt="غلاف الكتاب"
-              style={{ height: "20rem", width: "100%" }}
-            />
+              />
             <hr />
-            <p className="book_element">العنوان: {elem.title}</p>
-            <p className="book_element">المؤلف: {elem.author}</p>
-            <p className="book_element">السعر: {elem.price}</p>
+            <p>العنوان: {elem.title}</p>
+            <p>المؤلف: {elem.author}</p>
+            <p>السعر: {elem.price}</p>
             {/* <ReactStars
               count={5}
               onClick={ratingChanged}
@@ -106,7 +105,7 @@ export default function Category() {
           </div>
         );
       })}</>):("")}
-  {show ? (<button onClick={()=>{setShow(false)}} >Back To Category</button>):("")}    
+{show ? (<button onClick={()=>{setShow(false)}} >Back To Category</button>):("")}    
 
     </>
   );
