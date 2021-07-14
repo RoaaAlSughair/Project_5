@@ -8,9 +8,9 @@ const {
   deleteBooksByID,
   addNewBooks,
   updateBooksByID,
-  getBooksById,
   getBook,
 } = require("./../controllers/books");
+
 bookRouter.get("/", getAllBooks);
 bookRouter.get("/Category/:category_id", getBooksByCategory);
 bookRouter.get("/search", getBook);
