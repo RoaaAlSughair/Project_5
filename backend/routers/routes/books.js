@@ -14,6 +14,7 @@ const {
 bookRouter.get("/", getAllBooks);
 bookRouter.get("/Category/:category_id", getBooksByCategory);
 bookRouter.get("/search", getBook);
+bookRouter.get("/:book_id",getBooksById)
 bookRouter.delete(
   "/:book_id",
   authentication,
