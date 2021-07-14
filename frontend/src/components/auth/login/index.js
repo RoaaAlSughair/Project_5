@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,6 +18,13 @@ const Login = () => {
       token: state.login.token,
     };
   });
+  useEffect(() => {
+    LogOut();
+  }, []);
+  const LogOut = () => {
+    localStorage.clear();
+    dispatch(setToken({ token: "" }));
+  };
   const signIn = () => {
     axios
       .post("http://localhost:5000/login", { email, password })

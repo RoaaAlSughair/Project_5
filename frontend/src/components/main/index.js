@@ -18,6 +18,7 @@ import Category from "../bookPage/Category";
 import SearchResult from "../searchResult/SearchResult";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Author from "../bookPage/Author";
+// import Logout from "./../auth/login/index";
 
 const Main = () => {
   return (
@@ -39,6 +40,8 @@ const Main = () => {
         <Route exact path="/DeleteCategory" render={() => <DeleteCategory />} />
         <Route exact path="/authors" render={() => <Author />} />
         <Route exact path="/result" render={() => <SearchResult />} />
+        {/* <Route exact path="/logout" render={() => <Logout />} /> */}
+
         {/* <Route exact path="/Register" render={() => <Category />} /> 
         <Route exact path="/Register" render={() => <Authors />} />  */}
       </div>

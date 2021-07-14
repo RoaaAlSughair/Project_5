@@ -1,7 +1,7 @@
 .admin-button {
   display: grid;
   padding: 0.7em 6.7em;
-  margin: 0.8rem 22rem 0;
+  margin: 0.8rem 22rem 0;     
   border-radius: 0.5rem;
   box-sizing: border-box;
   text-decoration: none;
@@ -15,11 +15,6 @@
   position: relative;
   color: black;
   width: 35rem;
-}
-.author{
-  display: flex;
-  gap: 20px;
-  border-style: solid;
 }
 
 .table {

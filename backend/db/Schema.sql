@@ -10,7 +10,7 @@ CREATE TABLE users (
     user_id INT AUTO_INCREMENT NOT NULL,
     firstName NVARCHAR(255),
     lastName NVARCHAR(255),
-    email NVARCHAR(255),
+    email NVARCHAR(255)UNIQUE,
     password NVARCHAR(255),
     role_id INT,
     is_deleted TINYINT DEFAULT 0,
@@ -83,3 +83,4 @@ CREATE TABLE favorite (
     FOREIGN KEY (user_id) REFERENCES users (user_id),
     PRIMARY KEY (favorite_id)
 );
+
