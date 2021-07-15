@@ -5,7 +5,6 @@ const db = require("./db/db");
 
 const app = express();
 
-//routers
 const registerRouter = require("./routers/routes/auth/signUp");
 const loginRouter = require("./routers/routes/auth/login");
 const bookRouter = require("./routers/routes/books");
@@ -14,13 +13,11 @@ const shoppingCartRouter = require("./routers/routes/shopping_cart");
 const ContactUsRouter = require("./routers/routes/ContactUs");
 const CommentsRouter = require("./routers/routes/comments");
 const categoryRouter = require("./routers/routes/category");
-//built-in middlewares
+
 app.use(express.json());
 
-//third-party middleware
 app.use(cors());
 
-//app routers
 app.use(loginRouter);
 app.use(registerRouter);
 app.use("/book", bookRouter);
@@ -29,8 +26,8 @@ app.use(shoppingCartRouter);
 app.use(ContactUsRouter);
 app.use(CommentsRouter);
 app.use("/category", categoryRouter);
-const PORT = process.env.PORT || 5000;
 
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Server On ${PORT}`);
 });

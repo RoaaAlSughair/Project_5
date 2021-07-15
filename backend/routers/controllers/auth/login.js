@@ -1,14 +1,16 @@
 const connection = require("./../../../db/db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+
 const login = (req, res) => {
   const { email, password } = req.body;
-  const query = `SELECT* FROM users WHERE email=?  `;
+  const query = `SELECT * FROM users WHERE email = ?`;
   const data = [email, password];
+
   connection.query(query, data, async (err, result) => {
     if (err) {
       throw err;
-    } else if (result.length == 0) {
+    } else if (result.length === 0) {
       res.status(404).json("this email doesn't exist");
     } else {
       const comparison = await bcrypt.compare(password, result[0].password);
@@ -27,6 +29,7 @@ const login = (req, res) => {
     }
   });
 };
+
 module.exports = {
   login,
 };

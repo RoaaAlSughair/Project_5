@@ -8,7 +8,7 @@ const {
   getAllCategory,
   addNewCategory,
   updateCategory,
-  deleteCategory
+  deleteCategory,
 } = require("./../controllers/category");
 
 categoryRouter.get("/", getAllCategory);
@@ -18,18 +18,19 @@ categoryRouter.post(
   authorization("admin"),
   addNewCategory
 );
+
 categoryRouter.put(
   "/:category_id",
   authentication,
   authorization("admin"),
   updateCategory
 );
+
 categoryRouter.delete(
   "/:category_id",
   authentication,
   authorization("admin"),
   deleteCategory
 );
-
 
 module.exports = categoryRouter;
