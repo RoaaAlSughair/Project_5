@@ -5,7 +5,6 @@ import Navigation from "../navigation/index";
 import Login from "./../auth/login/index";
 import SignUp from "./../auth/signUp/index";
 import HomePage from "../homePage/index";
-import Comments from "./../../components/comments";
 import Contact from "../Contact/Contact";
 import Admin from "../adminPage/Admin";
 import AddBookPage from "../bookPage/AddBook";
@@ -18,7 +17,7 @@ import Category from "../bookPage/Category";
 import SearchResult from "../searchResult/SearchResult";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Author from "../bookPage/Author";
-// import Logout from "./../auth/login/index";
+
 
 const Main = () => {
   return (
@@ -28,7 +27,6 @@ const Main = () => {
         <Route exact path="/login" render={() => <Login />} />
         <Route exact path="/Register" render={() => <SignUp />} />
         <Route exact path="/home" render={() => <HomePage />} />
-        <Route exact path="/Comments" render={() => <Comments />} />
         <Route exact path="/contact" render={() => <Contact />} />
         <Route exact path="/admin" render={() => <Admin />} />
         <Route exact path="/AddBook" render={() => <AddBookPage />} />

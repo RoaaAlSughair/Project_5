@@ -7,7 +7,6 @@ function EditCategory() {
   const [category_id, setCategory_id] = useState(0);
   const [category, setCategory] = useState();
   const state = useSelector((state) => {
-    // specify which state to subscribe to (state tree => reducer => state name )
     return {
       token: state.login.token,
     };

@@ -7,7 +7,6 @@ function AddCategory() {
   const [category, setCategory] = useState();
   const [success, setSuccess] = useState(undefined);
   const state = useSelector((state) => {
-    // specify which state to subscribe to (state tree => reducer => state name )
     return {
       token: state.login.token,
     };

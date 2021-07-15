@@ -7,6 +7,7 @@ import { GoogleLogin } from "react-google-login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./login.css";
 import jwt_decode from "jwt-decode";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,12 +31,10 @@ const Login = () => {
       .post("http://localhost:5000/login", { email, password })
       .then((result) => {
         localStorage.setItem("token", result.data);
-        // console.log("result.data", result.data);
 
         var tokenBeforeDecode = result.data;
         var decoded = jwt_decode(tokenBeforeDecode);
 
-        // console.log(decoded.role_id);
         if (decoded.role_id === 1) {
           history.push("/authors");
           dispatch(setToken(result.data));
@@ -49,6 +48,7 @@ const Login = () => {
       });
   };
   const ResponseGoogle = (response) => {
+    console.log(response.accessToken)
     setToken(response.accessToken);
     localStorage.setItem("token", response.accessToken);
   };
@@ -92,12 +92,14 @@ const Login = () => {
             <button onClick={signIn} className="button">
               Login
             </button>
-            <div className="google">
               <p> or </p>
+            <div className="google">
               <GoogleLogin
                 clientId="1018427859000-rr1mqigkk7fvghqfnh85ph78eru3lo8m.apps.googleusercontent.com"
+                buttonText="Login"
                 onSuccess={ResponseGoogle}
                 onFailure={ResponseGoogle}
+                cookiePolicy={'single_host_origin'}
               />
             </div>
           </td>
