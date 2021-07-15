@@ -1,27 +1,33 @@
 Drop DATABASE books_worms;
+
 CREATE DATABASE books_worms;
+
 USE books_worms;
+
 CREATE TABLE roles (
     role_id INT AUTO_INCREMENT NOT NULL,
     role VARCHAR(255) NOT NULL,
     PRIMARY KEY (role_id)
 );
+
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT NOT NULL,
     firstName NVARCHAR(255),
     lastName NVARCHAR(255),
-    email NVARCHAR(255)UNIQUE,
+    email NVARCHAR(255) UNIQUE,
     password NVARCHAR(255),
     role_id INT,
     is_deleted TINYINT DEFAULT 0,
     FOREIGN KEY (role_id) REFERENCES roles(role_id),
     PRIMARY KEY (user_id)
 );
+
 CREATE TABLE categories (
     category_id INT AUTO_INCREMENT NOT NULL,
     category NVARCHAR (255) NOT NULL,
     PRIMARY KEY (category_id)
 );
+
 CREATE TABLE book (
     book_id INT AUTO_INCREMENT NOT NULL,
     book_img VARCHAR(255),
@@ -38,6 +44,7 @@ CREATE TABLE book (
     FOREIGN KEY (category_id) REFERENCES categories(category_id),
     PRIMARY KEY (book_id)
 );
+
 CREATE TABLE comments (
     comment_id INT AUTO_INCREMENT NOT NULL,
     comment NVARCHAR (255),
@@ -48,6 +55,7 @@ CREATE TABLE comments (
     FOREIGN KEY (book_id) REFERENCES book (book_id),
     PRIMARY KEY (comment_id)
 );
+
 CREATE TABLE cart (
     id INT AUTO_INCREMENT NOT NULL,
     quantity INT,
@@ -59,6 +67,7 @@ CREATE TABLE cart (
     FOREIGN KEY (user_id) REFERENCES users (user_id),
     PRIMARY KEY (id)
 );
+
 CREATE TABLE ratings (
     ratings_id INT AUTO_INCREMENT NOT NULL,
     ratings INT,
@@ -68,6 +77,7 @@ CREATE TABLE ratings (
     FOREIGN KEY (user_id) REFERENCES users (user_id),
     PRIMARY KEY (ratings_id)
 );
+
 CREATE TABLE contact (
     contact_id INT AUTO_INCREMENT NOT NULL,
     fullName NVARCHAR (100),
@@ -75,6 +85,7 @@ CREATE TABLE contact (
     message NVARCHAR (255),
     PRIMARY KEY (contact_id)
 );
+
 CREATE TABLE favorite (
     favorite_id INT AUTO_INCREMENT NOT NULL,
     book_id INT,
@@ -83,4 +94,3 @@ CREATE TABLE favorite (
     FOREIGN KEY (user_id) REFERENCES users (user_id),
     PRIMARY KEY (favorite_id)
 );
-

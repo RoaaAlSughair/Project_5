@@ -9,15 +9,11 @@ const getAllCategory = (req, res) => {
 };
 
 const addNewCategory = (req, res) => {
-  const {
-    category
-  } = req.body;
+  const { category } = req.body;
 
   const query = `INSERT INTO categories (category) VALUES (?);`;
 
-  const data = [
-    category
-  ];
+  const data = [category];
   connection.query(query, data, (err, results) => {
     if (err) {
       throw err;
@@ -26,22 +22,19 @@ const addNewCategory = (req, res) => {
     res.json(results);
   });
 };
-const updateCategory = (req, res) => {
-  const id = req.params.category_id;
-const {
-    category
-  } = req.body;
 
-  const query = `UPDATE categories SET category =? WHERE category_id = ${id};`;
-  const data = [
-    category
-  ];
+const updateCategory = (req, res) => {
+  const category_id = req.params.category_id;
+  const { category } = req.body;
+
+  const query = `UPDATE categories SET category = ? WHERE category_id = ${category_id};`;
+  const data = [category];
+
   connection.query(query, data, (err, result) => {
     if (err) throw err;
     res.json(result);
   });
 };
-
 
 const deleteCategory = (req, res) => {
   const category_id = req.params.category_id;
@@ -56,43 +49,9 @@ const deleteCategory = (req, res) => {
   });
 };
 
-
-
-
-// const getBookByTitle = (req, res) => {
-//   const title = req.query.title;
-
-//   const data = [title];
-//   const query = `SELECT * FROM book WHERE title = ?;`;
-//   connection.query(query, data, (err, result) => {
-//     if (err) {
-//       throw err;
-//     }
-//     res.status(200).json(result);
-//   });
-// };
-
-// const getBooksByAuthor = (req, res) => {
-//   const author = req.query.author;
-
-//   const data = [author];
-//   const query = `SELECT * FROM book WHERE author = ?;`;
-//   connection.query(query, data, (err, result) => {
-//     if (err) {
-//       throw err;
-//     }
-//     res.status(200).json(result);
-//   });
-// };
-
 module.exports = {
   getAllCategory,
   addNewCategory,
   updateCategory,
-  deleteCategory
-//   getBooksByCategory,
-//   deleteBooksByID,
-//   updateBooksByID,
-//   getBookByTitle,
-//   getBooksByAuthor,
+  deleteCategory,
 };
