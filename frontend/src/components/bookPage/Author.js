@@ -28,7 +28,7 @@ export default function Author() {
           onClick={() => {
             authors("أحمد خالد توفيق");
             setShow(true)
-          }}
+          }}alt=""
         />
         <p style={{textAlign:"center"}}>أحمد خالد توفيق</p>
       </div>
@@ -38,7 +38,7 @@ export default function Author() {
           onClick={() => {
             authors("د. وليد فتيحي");
             setShow(true)
-          }}
+          }}alt=""
         />
         <p style={{textAlign:"center"}}>د. وليد فتيحي</p>
       </div>
@@ -48,7 +48,7 @@ export default function Author() {
           onClick={() => {
             authors("مصطفى السعدني");
             setShow(true)
-          }}
+          }}alt=""
         />
         <p style={{textAlign:"center"}}>مصطفى السعدني</p>
       </div>
@@ -58,7 +58,7 @@ export default function Author() {
           onClick={() => {
             authors("أحمد خيري العمري");
             setShow(true)
-          }}
+          }}alt=""
         />
         <p style={{textAlign:"center"}}>أحمد خيري العمري</p>
       </div>
@@ -68,7 +68,7 @@ export default function Author() {
           onClick={() => {
             authors("لوسي مود مونتيغمري");
             setShow(true)
-          }}
+          }}alt=""
         />
         <p style={{textAlign:"center"}}>لوسي مود مونتيغمري</p>
       </div>
@@ -78,7 +78,7 @@ export default function Author() {
           onClick={() => {
             authors("د. محمد الشيخ");
             setShow(true)
-          }}
+          }}alt=""
         />
         <p style={{textAlign:"center"}}>د. محمد الشيخ</p>
       </div>
@@ -88,7 +88,7 @@ export default function Author() {
           onClick={() => {
             authors("أدهم الشرقاوي");
             setShow(true)
-          }}
+          }}alt=""
         />
         <p style={{textAlign:"center"}}>أدهم الشرقاوي</p>
       </div>

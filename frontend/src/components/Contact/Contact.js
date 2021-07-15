@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./contact.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { FloatingWhatsApp } from "react-floating-whatsapp-button";
+import "react-floating-whatsapp-button/dist/index.css";
 
 export default function ContactUs() {
   const [fullName, setFullName] = useState("");
@@ -93,6 +95,7 @@ export default function ContactUs() {
             </td>
           </tr>
         </table>
+        <FloatingWhatsApp/>
       </div>
     </>
   );

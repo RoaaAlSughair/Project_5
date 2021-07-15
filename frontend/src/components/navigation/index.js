@@ -39,15 +39,19 @@ const Navigation = () => {
   return (
     <div className="NavBar">
       <Link to="/home" className="Link">
-        <span
+        {" "}
+        <img
+          src="https://www.pinclipart.com/picdir/big/204-2041426_library-clipart-bookworm-clip-art-book-worm-png.png"
           style={{
-            color: "#a24e12",
-            fontFamily: "math",
-            fontWeight: "bolder",
-          }}
-        >
+            hight: "75px",
+            width: "75px",
+            cursor:"pointer" 
+          }}alt="a book worm"
+        />
+      </Link>
+      <Link to="/home" className="Link">
+    
           Home
-        </span>
       </Link>
       <Link to="/Category" className="Link">
         Category
@@ -58,19 +62,17 @@ const Navigation = () => {
       {/* <Link to="/admin" className="Link">
           Admin Page
         </Link> */}
-        
-      {token&&decoded.role_id === 1 ?  (
+
+      {/* {token&&decoded.role_id === 1 ?  (
         
         <Link to="/admin" className="Link" style={{display:"inherit"}}>
           Admin Page
         </Link>
-      ) : ""}
-   
-    
-          <Link to="/contact" className="Link">
-            Contact
-          </Link>
-         
+      ) : ""} */}
+
+      <Link to="/contact" className="Link">
+        Contact
+      </Link>
 
       <div className="search">
         <input
@@ -85,27 +87,20 @@ const Navigation = () => {
           Search
         </button>
       </div>
-      {!token ?  (
-       <> 
+      {!token ? (
+        <>
+          <Link to="/login" className="Link">
+            Log In
+          </Link>
+          <Link to="/Register" className="Link">
+            Register
+          </Link>
+        </>
+      ) : (
         <Link to="/login" className="Link">
-        Log In
-      </Link>
-      <Link to="/Register" className="Link">
-      Register
-    </Link>
-    </>
-      ) : 
-      <Link to="/login" className="Link">
-      Log out
-    </Link>
-      }
-
-
-
-
-      
-      
-      
+          Log out
+        </Link>
+      )}
     </div>
   );
 };

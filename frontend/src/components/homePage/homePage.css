@@ -10,8 +10,10 @@
 .book {
   border-style: solid;
   height: fit-content;
+  border-radius: 5px;
   padding: 1rem;
   border-color: #a24e12;
   display: inline-block;
   text-align: right;
+  box-shadow: 4px 4px #a24e12;
 }
