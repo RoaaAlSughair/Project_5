@@ -54,8 +54,8 @@ function EditBookPage() {
 
   return (
     <div className="editBook" >
-      <h1 style={{color: "#a24e12", marginLeft: "33rem"}}>Edit book</h1>
-      <table className="table">
+      <h1 style={{color: "#a24e12", marginLeft: "40rem",marginTop:"2rem"}}>Edit book</h1>
+      <table className="tableEdit">
       <tr><th>Book Id</th>
       <th> <input
         type="Number"

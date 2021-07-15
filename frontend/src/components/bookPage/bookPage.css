@@ -17,16 +17,34 @@
   width: 35rem;
 }
 
-.table {
+.tableAdd {
   font-family: sans-serif;
   vertical-align: middle;
   text-align: center;
   justify-content: center;
   align-items: center;
   color: #a24e12;
+  margin-left: 28rem;
+  margin-top: 3rem;
 }
-.table td,
-.table th {
+.tableEdit{
+  font-family: sans-serif;
+  vertical-align: middle;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: #a24e12;
+  margin-left: 28rem;
+  margin-top: 3rem;
+}
+.tableEdit td,
+.tableEdit th {
+  padding: 0.75rem;
+  vertical-align: middle;
+  font-size: 1.25rem;
+}
+.tableAdd td,
+.tableAdd th {
   padding: 0.75rem;
   vertical-align: middle;
   font-size: 1.25rem;
@@ -41,7 +59,7 @@
   color: white;
   height: 3rem;
   width: 10rem;
-  margin-left: -28rem;
+  margin-left: 5rem;
   position: relative;
   border-radius: 0.5rem;
 }
@@ -128,7 +146,7 @@ border-bottom: solid 2px  #a24e12;
   color: white;
   height: 3rem;
   width: 10rem;
-  margin-left: 64rem;
+  margin-left: 59rem;
   position: relative;
   border-radius: 0.5rem;
   margin-top: 2rem;

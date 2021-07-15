@@ -50,8 +50,8 @@ function AddBookPage() {
   };
   return (
     <div className="AddBook" >
-      <h1 style={{color: "#a24e12", marginLeft: "33rem"}}>Add book</h1>
-      <table className="table">
+      <h1 style={{color: "#a24e12", marginLeft: "39rem" , marginTop:"2rem"}}>Add book</h1>
+      <table className="tableAdd">
         <tr>
           <th>URL picture</th>
           <th> <input

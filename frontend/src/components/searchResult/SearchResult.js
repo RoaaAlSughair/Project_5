@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import "./SearchResult.css";
 
 export default function SearchBar() {
   const dispatch = useDispatch();
@@ -7,7 +8,7 @@ export default function SearchBar() {
   const state = useSelector(state => state.searchResult.result);
 
   return (
-    <div>
+    <div className="search">
         {state.map((elem, index) => {
           return <div key={index} className="search-result">
             <img
@@ -21,8 +22,9 @@ export default function SearchBar() {
             <p className="">المؤلف: {elem.author}</p>
             <p className="">الوصف: {elem.description}</p>
             <p className="">السعر: {elem.price}</p>
-            <button>Add to favorite</button>
-            <button>Buy now</button>
+            <div className="buttonBuyAdd">
+            <button className="addButton">Add to favorite</button>
+            <button className="buyButton">Buy now</button></div>
           </div>
         })}
     </div>

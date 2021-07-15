@@ -63,12 +63,12 @@ const Navigation = () => {
           Admin Page
         </Link> */}
 
-      {/* {token&&decoded.role_id === 1 ?  (
+      {token&&decoded.role_id === 1 ?  (
         
         <Link to="/admin" className="Link" style={{display:"inherit"}}>
           Admin Page
         </Link>
-      ) : ""} */}
+      ) : ""}
 
       <Link to="/contact" className="Link">
         Contact
