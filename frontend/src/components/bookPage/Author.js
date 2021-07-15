@@ -4,14 +4,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./Author.css";
 
 export default function Author() {
-  const [category_id, setCategory_id] = useState(4);
   const [show, setShow] = useState(false);
   const [data, setData] = useState([]);
   const authors = (x) => {
     axios
        .get(`http://localhost:5000/book/search?KeyWord=${x}`)
       .then((result) => {
-        // console.log(result.data);
         setData(result.data);
       })
       .catch((err) => {

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./../Category/Category.css";
+
 export default function Category() {
   const [data, setData] = useState([]);
   const [show, setShow] = useState(false);
@@ -16,7 +17,6 @@ export default function Category() {
         console.log(err.response.data);
       });
   };
-  console.log(data);
   return (
     <>
     <h1 className="h1"> {name}  </h1>
@@ -88,7 +88,7 @@ export default function Category() {
           onClick={() => {
             categories(8);
             setShow(true)
-            setName("الادب الساخر")
+            setName("الأدب الساخر")
 
           }}alt=''
         />

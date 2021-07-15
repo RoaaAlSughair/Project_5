@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import Axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default shipping = () => {
+export default Shipping = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");

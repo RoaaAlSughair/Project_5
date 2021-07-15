@@ -10,27 +10,33 @@ function BookPage(role, token) {
   return (
     <div className="bookPage">
       <>
-      <button className="admin-button"><Link
-          to="/AddBook"
-          className="linkN"
-          style={{ textDecoration: "none" ,color:"rgb(31, 38, 59)" }}
-        >
-          <div className="link">Add Book</div>
-        </Link></button>
-        <button className="admin-button"><Link
-          to="/EditBook"
-          className="linkN"
-          style={{ textDecoration: "none" ,color:"rgb(31, 38, 59)" }}
-        >
-          <div className="link">Edit Book</div>
-        </Link></button>
-        <button className="admin-button"><Link
-          to="/DeleteBook"
-          className="linkN"
-          style={{ textDecoration: "none" ,color:"rgb(31, 38, 59)" }}
-        >
-          <div className="link">Delete Book</div>
-        </Link></button>
+        <button className="admin-button">
+          <Link
+            to="/AddBook"
+            className="linkN"
+            style={{ textDecoration: "none", color: "rgb(31, 38, 59)" }}
+          >
+            <div className="link">Add Book</div>
+          </Link>
+        </button>
+        <button className="admin-button">
+          <Link
+            to="/EditBook"
+            className="linkN"
+            style={{ textDecoration: "none", color: "rgb(31, 38, 59)" }}
+          >
+            <div className="link">Edit Book</div>
+          </Link>
+        </button>
+        <button className="admin-button">
+          <Link
+            to="/DeleteBook"
+            className="linkN"
+            style={{ textDecoration: "none", color: "rgb(31, 38, 59)" }}
+          >
+            <div className="link">Delete Book</div>
+          </Link>
+        </button>
       </>
 
       <Route exact path="/AddBook" component={AddBookPage} />

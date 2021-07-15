@@ -6,7 +6,6 @@ import "./bookPage.css";
 const DeleteBookPage = () => {
   const [book_id, setBook_id] = useState(0);
   const state = useSelector((state) => {
-    // specify which state to subscribe to (state tree => reducer => state name )
     return {
       token: state.login.token,
     };
