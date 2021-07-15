@@ -1,16 +1,17 @@
 .login {
   display: grid;
   grid-template-columns: auto;
-  gap: 5%;
+  gap: 0.25rem;
   width: fit-content;
   padding: 1.5rem;
   justify-content: center;
-  margin-left: 35%;
+  margin-left: 31%;
   margin-bottom: 4rem;
   margin-top: 2rem;
   border-style: solid;
   border-color: black;
   color: #a24e12;
+  border-radius: 0.5rem;
 
 }
 .button {

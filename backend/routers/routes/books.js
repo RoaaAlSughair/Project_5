@@ -9,6 +9,7 @@ const {
   addNewBooks,
   updateBooksByID,
   getBook,
+  getBooksById,
 } = require("./../controllers/books");
 
 bookRouter.get("/", getAllBooks);
