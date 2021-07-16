@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
 import "./bookPage.css";
 
 function EditBookPage() {
@@ -14,11 +13,7 @@ function EditBookPage() {
   const [pages, setPages] = useState("");
   const [price, setPrice] = useState("");
   const [author, setAuthor] = useState("");
-  const state = useSelector((state) => {
-    return {
-      token: state.login.token,
-    };
-  });
+
   const getBookById = () => {
     axios
       .get(`http://localhost:5000/book/${book_id}`)
@@ -30,6 +25,7 @@ function EditBookPage() {
         throw err;
       });
   };
+  
   const EditBook = () => {
     axios.put(
       `http://localhost:5000/book/${book_id}`,
@@ -57,6 +53,7 @@ function EditBookPage() {
         Edit book
       </h1>
       <table className="tableEdit">
+        <thead>
         <tr>
           <th>Book Id</th>
           <th>
@@ -150,7 +147,7 @@ function EditBookPage() {
           <th>pages Number</th>
           <th>
             <input
-              type="Number"
+              type="number"
               placeholder="pages here "
               value={data.pages}
               onChange={(e) => {
@@ -163,7 +160,7 @@ function EditBookPage() {
           <th>Price</th>
           <th>
             <input
-              type="Number"
+              type="number"
               placeholder="price here "
               value={data.price}
               onChange={(e) => {
@@ -193,6 +190,7 @@ function EditBookPage() {
             </button>
           </th>
         </tr>
+        </thead>
       </table>
     </div>
   );

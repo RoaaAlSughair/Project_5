@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setBooks } from "../../reducers/homePage";
 import ReactStars from "react-rating-stars-component";
-import Axios from "axios";
+import axios from "axios";
 import "./homePage.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function HomePage() {
   const [stars, setStars] = useState(0);
   const dispatch = useDispatch();
+  
   const state = useSelector((state) => {
     return {
       books: state.homePage.books,
@@ -16,7 +16,7 @@ export default function HomePage() {
   });
 
   useEffect(() => {
-    Axios.get("http://localhost:5000/book/")
+    axios.get("http://localhost:5000/book/")
       .then((res) => {
         dispatch(setBooks(res.data));
       })
@@ -24,9 +24,11 @@ export default function HomePage() {
         throw err;
       });
   });
+
   const ratingChanged = (e) => {
     setStars(e.target.value);
   };
+
   return (
     <div className="home_page">
       {state.books.map((elem, index) => {
