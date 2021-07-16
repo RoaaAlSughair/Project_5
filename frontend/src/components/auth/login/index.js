@@ -4,9 +4,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setToken } from "../../../reducers/login";
 import { GoogleLogin } from "react-google-login";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./login.css";
-import jwt_decode from "jwt-decode";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -14,96 +12,94 @@ const Login = () => {
   const [message, setMessage] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
+
   const state = useSelector((state) => {
     return {
       token: state.login.token,
     };
   });
+
   useEffect(() => {
     LogOut();
   }, []);
+
   const LogOut = () => {
     localStorage.clear();
-    dispatch(setToken({ token: "" }));
+    dispatch(setToken(""));
   };
+
   const signIn = () => {
     axios
       .post("http://localhost:5000/login", { email, password })
       .then((result) => {
-        localStorage.setItem("token", result.data);
-
-        var tokenBeforeDecode = result.data;
-        var decoded = jwt_decode(tokenBeforeDecode);
-
-        if (decoded.role_id === 1) {
-          history.push("/authors");
-          dispatch(setToken(result.data));
-        } else if (decoded.role_id === 2) {
-          history.push("/contact");
-          dispatch(setToken(result.data));
-        }
+        dispatch(setToken(result.data));
+        localStorage.setItem("token", state.token);
+        history.push("/home");
       })
       .catch((err) => {
         setMessage(err.response.data);
       });
   };
+  
   const ResponseGoogle = (response) => {
-    console.log(response.accessToken)
-    setToken(response.accessToken);
-    localStorage.setItem("token", response.accessToken);
+    dispatch(setToken(response.accessToken));
+    localStorage.setItem("token", state.token);
   };
+
   return (
     <div className="login">
       <h1>Login Page</h1>
       <table>
-        <tr>
-          <td>
-            <label>Email</label>
-          </td>
-          <td>
-            <input
-              type="email"
-              placeholder="Email"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-            />
-          </td>
-        </tr>
-        <tr></tr>
-        <tr>
-          <td>
-            <label>Password</label>
-          </td>
-          <td>
-            <input
-              type="password"
-              placeholder="Password"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-            />
-          </td>
-        </tr>
-        <tr></tr>
-        <tr>
-          <td></td>
-          <td>
-            <button onClick={signIn} className="button">
-              Login
-            </button>
-              <p> or </p>
-            <div className="google">
-              <GoogleLogin
-                clientId="1018427859000-rr1mqigkk7fvghqfnh85ph78eru3lo8m.apps.googleusercontent.com"
-                buttonText="Login"
-                onSuccess={ResponseGoogle}
-                onFailure={ResponseGoogle}
-                cookiePolicy={'single_host_origin'}
+        <tbody>
+          <tr>
+            <td>
+              <label>Email</label>
+            </td>
+            <td>
+              <input
+                type="email"
+                placeholder="Email"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
-            </div>
-          </td>
-        </tr>
+            </td>
+          </tr>
+          <tr></tr>
+          <tr>
+            <td>
+              <label>Password</label>
+            </td>
+            <td>
+              <input
+                type="password"
+                placeholder="Password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
+            </td>
+          </tr>
+          <tr></tr>
+          <tr>
+            <td></td>
+            <td>
+              <button onClick={signIn} className="button">
+                Login
+              </button>
+              <p> or </p>
+              <div className="google">
+                <GoogleLogin
+                  clientId="1018427859000-rr1mqigkk7fvghqfnh85ph78eru3lo8m.apps.googleusercontent.com"
+                  buttonText="Login"
+                  onSuccess={ResponseGoogle}
+                  onFailure={ResponseGoogle}
+                  cookiePolicy={"single_host_origin"}
+                />
+              </div>
+            </td>
+          </tr>
+        </tbody>
         <p>{message}</p>
         <p>
           Sign Up for website <Link to="/register">Register</Link>
@@ -112,4 +108,5 @@ const Login = () => {
     </div>
   );
 };
+
 export default Login;
