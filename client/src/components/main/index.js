@@ -15,9 +15,7 @@ import EditCategory from "../Category/EditCategory";
 import DeleteCategory from "../Category/DeleteCategory";
 import Category from "../bookPage/Category";
 import SearchResult from "../searchResult/SearchResult";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Author from "../bookPage/Author";
-
 
 const Main = () => {
   return (
@@ -26,9 +24,7 @@ const Main = () => {
       <div className="Main">
         <Route exact path="/login" render={() => <Login />} />
         <Route exact path="/" render={() => <HomePage />} />
-
         <Route path="/Register" render={() => <SignUp />} />
-        <Route path="/home" render={() => <HomePage />} />
         <Route path="/contact" render={() => <Contact />} />
         <Route path="/admin" render={() => <Admin />} />
         <Route path="/AddBook" render={() => <AddBookPage />} />
@@ -40,10 +36,6 @@ const Main = () => {
         <Route path="/DeleteCategory" render={() => <DeleteCategory />} />
         <Route path="/authors" render={() => <Author />} />
         <Route path="/result" render={() => <SearchResult />} />
-        {/* <Route exact path="/logout" render={() => <Logout />} /> */}
-
-        {/* <Route exact path="/Register" render={() => <Category />} /> 
-        <Route exact path="/Register" render={() => <Authors />} />  */}
       </div>
     </>
   );

@@ -8,7 +8,7 @@ import "./homePage.css";
 export default function HomePage() {
   const [stars, setStars] = useState(0);
   const dispatch = useDispatch();
-  
+
   const state = useSelector((state) => {
     return {
       books: state.homePage.books,
@@ -16,7 +16,8 @@ export default function HomePage() {
   });
 
   useEffect(() => {
-    axios.get("/book/")
+    axios
+      .get("/book/")
       .then((res) => {
         dispatch(setBooks(res.data));
       })

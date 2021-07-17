@@ -5,12 +5,11 @@ import { Link } from "react-router-dom";
 import { setResult } from "../../reducers/SearchResult";
 import Axios from "axios";
 import "./navigation.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import jwt from "jsonwebtoken";
-const token = localStorage.getItem("token");
-const decoded = jwt.decode(token);
 
 const Navigation = () => {
+  const token = localStorage.getItem("token");
+  const decoded = jwt.decode(token);
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -26,15 +25,12 @@ const Navigation = () => {
     if (!KeyWord) {
       e.preventDefault();
     } else {
-      Axios.get(`/book/search?KeyWord=${KeyWord}`).then(
-        (res) => {
-          dispatch(setResult(res.data));
-          history.push("/result");
-        }
-      );
+      Axios.get(`/book/search?KeyWord=${KeyWord}`).then((res) => {
+        dispatch(setResult(res.data));
+        history.push("/result");
+      });
     }
   };
-  // const token1 = localStorage.getItem("token");
 
   return (
     <div className="NavBar">
@@ -45,13 +41,13 @@ const Navigation = () => {
           style={{
             hight: "75px",
             width: "75px",
-            cursor:"pointer" 
-          }}alt="a book worm"
+            cursor: "pointer",
+          }}
+          alt="a book worm"
         />
       </Link>
       <Link to="/home" className="Link">
-    
-          Home
+        Home
       </Link>
       <Link to="/Category" className="Link">
         Category
@@ -59,9 +55,6 @@ const Navigation = () => {
       <Link to="/authors" className="Link">
         Author
       </Link>
-      {/* <Link to="/admin" className="Link">
-          Admin Page
-        </Link> */}
 
       {/* {token&&decoded.role_id === 1 ?  (
         
