@@ -8,7 +8,6 @@ const SignUp = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
   const history = useHistory();
 
   const register = () => {
@@ -20,11 +19,7 @@ const SignUp = () => {
         password,
       })
       .then((result) => {
-        if (!email.includes("@") && !email.includes(".com")) {
-          setMessage("Email is not valid")
-        } else {
-          history.push("/login");
-        }
+        history.push("/login");
       })
       .catch((err) => {
         console.log(err);
@@ -94,7 +89,6 @@ const SignUp = () => {
             </th>
           </tr>
         </tbody>
-        {message}
       </table>
     </div>
   );
