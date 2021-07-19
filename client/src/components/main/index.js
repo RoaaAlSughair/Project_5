@@ -16,6 +16,7 @@ import DeleteCategory from "../Category/DeleteCategory";
 import Category from "../bookPage/Category";
 import SearchResult from "../searchResult/SearchResult";
 import Author from "../bookPage/Author";
+import BookDetails from "../bookPage/bookDetails";
 
 const Main = () => {
   return (
@@ -36,6 +37,8 @@ const Main = () => {
         <Route path="/DeleteCategory" render={() => <DeleteCategory />} />
         <Route path="/authors" render={() => <Author />} />
         <Route path="/result" render={() => <SearchResult />} />
+        <Route path="/bookDetails" render={() => <BookDetails />} />
+
       </div>
     </>
   );

@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 import { setBooks } from "../../reducers/homePage";
+import { setDetails } from "../../reducers/bookDetail";
 import ReactStars from "react-rating-stars-component";
 import axios from "axios";
 import "./homePage.css";
 
 export default function HomePage() {
-  const [stars, setStars] = useState(0);
   const dispatch = useDispatch();
-  
+  const history = useHistory();
+  const [stars, setStars] = useState(0);
+  const [keyWord, setKeyWord] = useState("");
+
   const state = useSelector((state) => {
     return {
       books: state.homePage.books,
@@ -16,7 +20,8 @@ export default function HomePage() {
   });
 
   useEffect(() => {
-    axios.get("/book/")
+    axios
+      .get("/book/")
       .then((res) => {
         dispatch(setBooks(res.data));
       })
@@ -29,6 +34,18 @@ export default function HomePage() {
     setStars(e.target.value);
   };
 
+  const details = (title) => {
+    axios
+      .get(`/book/search?KeyWord=${title}`)
+      .then((res) => {
+        dispatch(setDetails(res.data[0]));
+        history.push("/bookDetails");
+      })
+      .catch((err) => {
+        throw err;
+      });
+  };
+
   return (
     <div className="home_page">
       {state.books.map((elem, index) => {
@@ -38,7 +55,7 @@ export default function HomePage() {
               className="book_image"
               src={elem.book_img}
               alt="غلاف الكتاب"
-              style={{ height: "12rem", width: "100%" }}
+              style={{ height: "20rem", width: "100%" }}
             />
             <hr />
             <p className="book_element">العنوان: {elem.title}</p>
@@ -48,9 +65,18 @@ export default function HomePage() {
               count={5}
               onClick={ratingChanged}
               size={24}
-              activeColor="#ffd700"
+              activeColor="#FFD700"
               isHalf={true}
             />
+            <button
+              className="button-Add"
+              value={elem.title}
+              onClick={(e) => {
+                details(e.target.value);
+              }}
+            >
+              Details
+            </button>
           </div>
         );
       })}
