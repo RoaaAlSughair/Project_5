@@ -23,7 +23,7 @@ export default function HomePage() {
       .catch((err) => {
         throw err;
       });
-  });
+  }, []);
 
   const ratingChanged = (e) => {
     setStars(e.target.value);
