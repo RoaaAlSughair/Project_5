@@ -32,8 +32,8 @@ const Login = () => {
     axios
       .post("/login", { email, password })
       .then((result) => {
+        localStorage.setItem("token", result.data);
         dispatch(setToken(result.data));
-        localStorage.setItem("token", state.token);
         history.push("/home");
       })
       .catch((err) => {
@@ -42,8 +42,8 @@ const Login = () => {
   };
   
   const ResponseGoogle = (response) => {
-    dispatch(setToken(response.accessToken));
     localStorage.setItem("token", state.token);
+    dispatch(setToken(response.accessToken));
   };
 
   return (
@@ -99,8 +99,8 @@ const Login = () => {
               </div>
             </td>
           </tr>
+        <tr><td>{message}</td></tr>
         </tbody>
-        <p>{message}</p>
         <p>
           Sign Up for website <Link to="/register">Register</Link>
         </p>
