@@ -8,6 +8,7 @@ export default function ContactUs() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [messageUser, setMessageUser] = useState("");
 
   const contact = () => {
     axios
@@ -16,8 +17,11 @@ export default function ContactUs() {
         email: email,
         message: message,
       })
-      .then((response) => {})
+      .then((response) => {
+        setMessageUser("message send successfully");
+      })
       .catch((err) => {
+        setMessageUser("message not send");
         throw err;
       });
   };
@@ -78,7 +82,7 @@ export default function ContactUs() {
               </td>
               <td>
                 <textarea
-                  rows="3"
+                  rows="5"
                   placeholder="message here "
                   onChange={(e) => {
                     setMessage(e.target.value);
@@ -93,6 +97,9 @@ export default function ContactUs() {
                   send
                 </button>
               </td>
+            </tr>
+            <tr>
+              <th>{messageUser}</th>
             </tr>
           </tbody>
         </table>

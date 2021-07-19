@@ -13,38 +13,54 @@ function EditBookPage() {
   const [pages, setPages] = useState("");
   const [price, setPrice] = useState("");
   const [author, setAuthor] = useState("");
+  const [message, setMessage] = useState("");
 
   const getBookById = () => {
     axios
       .get(`/book/${book_id}`)
       .then((result) => {
         setData(result.data[0]);
-        console.log(result.data[0].book_img);
+        setBook_img(result.data[0].book_img);
+        setTitle(result.data[0].title);
+        setDescription(result.data[0].description);
+        setPublisher(result.data[0].publisher);
+        setEdition(result.data[0].edition);
+        setPages(result.data[0].pages);
+        setPrice(result.data[0].price);
+        setAuthor(result.data[0].author);
       })
       .catch((err) => {
         throw err;
       });
   };
-  
+
   const EditBook = () => {
-    axios.put(
-      `/book/${book_id}`,
-      {
-        book_img: book_img,
-        title: title,
-        description: description,
-        publisher: publisher,
-        edition: edition,
-        pages: pages,
-        price: price,
-        author: author,
-      },
-      {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("token")}`,
+    axios
+      .put(
+        `/book/${book_id}`,
+        {
+          book_img: book_img,
+          title: title,
+          description: description,
+          publisher: publisher,
+          edition: edition,
+          pages: pages,
+          price: price,
+          author: author,
         },
-      }
-    );
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
+      .then((result) => {
+        setMessage("Update successfully");
+      })
+      .catch((err) => {
+        setMessage("not Updated ");
+        throw err;
+      });
   };
 
   return (
@@ -53,13 +69,12 @@ function EditBookPage() {
         Edit book
       </h1>
       <table className="tableEdit">
-        <thead>
         <tr>
           <th>Book Id</th>
           <th>
             {" "}
             <input
-              type="Number"
+              type="number"
               placeholder="book_id here "
               onChange={(e) => {
                 setBook_id(e.target.value);
@@ -78,11 +93,10 @@ function EditBookPage() {
         <tr>
           <th>URL picture</th>
           <th>
-            {" "}
             <input
               type="text"
               placeholder="URL picture here "
-              value={data.book_img}
+              defaultValue={data.book_img}
               onChange={(e) => {
                 setBook_img(e.target.value);
               }}
@@ -95,7 +109,7 @@ function EditBookPage() {
             <input
               type="text"
               placeholder="title here "
-              value={data.title}
+              defaultValue={data.title}
               onChange={(e) => {
                 setTitle(e.target.value);
               }}
@@ -105,11 +119,10 @@ function EditBookPage() {
         <tr>
           <th>Description</th>
           <th>
-            {" "}
             <input
               type="text"
               placeholder="description here "
-              value={data.description}
+              defaultValue={data.description}
               onChange={(e) => {
                 setDescription(e.target.value);
               }}
@@ -119,11 +132,10 @@ function EditBookPage() {
         <tr>
           <th>Publisher</th>
           <th>
-            {" "}
             <input
               type="text"
               placeholder="publisher here "
-              value={data.publisher}
+              defaultValue={data.publisher}
               onChange={(e) => {
                 setPublisher(e.target.value);
               }}
@@ -136,7 +148,7 @@ function EditBookPage() {
             <input
               type="text"
               placeholder="edition here "
-              value={data.edition}
+              defaultValue={data.edition}
               onChange={(e) => {
                 setEdition(e.target.value);
               }}
@@ -149,7 +161,7 @@ function EditBookPage() {
             <input
               type="number"
               placeholder="pages here "
-              value={data.pages}
+              defaultValue={data.pages}
               onChange={(e) => {
                 setPages(e.target.value);
               }}
@@ -162,7 +174,7 @@ function EditBookPage() {
             <input
               type="number"
               placeholder="price here "
-              value={data.price}
+              defaultValue={data.price}
               onChange={(e) => {
                 setPrice(e.target.value);
               }}
@@ -175,7 +187,7 @@ function EditBookPage() {
             <input
               type="text"
               placeholder="author here "
-              value={data.author}
+              defaultValue={data.author}
               onChange={(e) => {
                 setAuthor(e.target.value);
               }}
@@ -190,7 +202,9 @@ function EditBookPage() {
             </button>
           </th>
         </tr>
-        </thead>
+        <tr>
+          <th>{message}</th>
+        </tr>
       </table>
     </div>
   );

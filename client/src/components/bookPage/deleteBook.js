@@ -4,6 +4,7 @@ import "./bookPage.css";
 
 const DeleteBookPage = () => {
   const [book_id, setBook_id] = useState(0);
+  const [message, setMessage] = useState("");
 
   const deleteBook = () => {
     axios
@@ -12,8 +13,11 @@ const DeleteBookPage = () => {
           authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       })
-      .then((res) => {})
+      .then((res) => {
+        setMessage("delete successfully");
+      })
       .catch((err) => {
+        setMessage("not deleted ");
         throw err;
       });
   };
@@ -24,27 +28,30 @@ const DeleteBookPage = () => {
         Delete Book
       </h1>
       <table className="tableDelete">
-      <tbody>
-        <tr>
-          <th>Book Id</th>
-          <th>
-            <input
-              type="Number"
-              placeholder="book_id here "
-              onChange={(e) => {
-                setBook_id(e.target.value);
-              }}
-            />
-          </th>
-        </tr>
-        <tr>
-          <th></th>
-          <th>
-            <button onClick={deleteBook} className="delete-button">
-              Delete Book
-            </button>
-          </th>
-        </tr>
+        <tbody>
+          <tr>
+            <th>Book Id</th>
+            <th>
+              <input
+                type="number"
+                placeholder="book_id here "
+                onChange={(e) => {
+                  setBook_id(e.target.value);
+                }}
+              />
+            </th>
+          </tr>
+          <tr>
+            <th></th>
+            <th>
+              <button onClick={deleteBook} className="delete-button">
+                Delete Book
+              </button>
+            </th>
+          </tr>
+          <tr>
+            <th>{message} </th>
+          </tr>
         </tbody>
       </table>
     </div>

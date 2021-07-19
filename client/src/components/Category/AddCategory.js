@@ -3,7 +3,7 @@ import axios from "axios";
 
 function AddCategory() {
   const [category, setCategory] = useState();
-  const [success, setSuccess] = useState(undefined);
+  const [message, setMessage] = useState("");
 
   const AddCategories = () => {
     axios
@@ -19,10 +19,10 @@ function AddCategory() {
         }
       )
       .then((res) => {
-        setSuccess(true);
+        setMessage("add successfully");
       })
       .catch((err) => {
-        setSuccess(false);
+        setMessage("not added");
         throw err;
       });
   };
@@ -54,6 +54,9 @@ function AddCategory() {
                 Add Category
               </button>
             </th>
+          </tr>
+          <tr>
+            <th>{message}</th>
           </tr>
         </tbody>
       </table>
