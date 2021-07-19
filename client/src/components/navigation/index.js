@@ -26,7 +26,6 @@ const Navigation = () => {
 
   useEffect(() => {
     if (state.token) {
-
       setDecoded(jwt_decode(state.token));
     }
   }, [state.token]);
@@ -42,13 +41,9 @@ const Navigation = () => {
     }
   };
 
-  console.log("TOKEN", state.token);
-  console.log("DECOED", decoded);
-  console.log("JWT", jwt_decode("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyNSwicm9sZV9pZCI6MiwiaWF0IjoxNjI2NjQyOTc4LCJleHAiOjE2MjY3MDI5Nzh9.TDhT0xYCmJpiytNWUdzbSNoXpZdI_pqP3DcQqpjfH38"));
-  
   return (
     <div className="NavBar">
-      <Link to="/home" className="Link">
+      <Link to="/" className="Link">
         {" "}
         <img
           src="https://www.pinclipart.com/picdir/big/204-2041426_library-clipart-bookworm-clip-art-book-worm-png.png"
@@ -60,7 +55,7 @@ const Navigation = () => {
           alt="a book worm"
         />
       </Link>
-      <Link to="/home" className="Link">
+      <Link to="/" className="Link">
         Home
       </Link>
       <Link to="/Category" className="Link">
@@ -69,7 +64,7 @@ const Navigation = () => {
       <Link to="/authors" className="Link">
         Author
       </Link>
-      {state.token &&decoded && decoded.role_id === 1 ? (
+      {state.token && decoded && decoded.role_id === 1 ? (
         <Link to="/admin" className="Link" style={{ display: "inherit" }}>
           Admin Page
         </Link>

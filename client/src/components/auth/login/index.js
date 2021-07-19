@@ -34,7 +34,7 @@ const Login = () => {
       .then((result) => {
         localStorage.setItem("token", result.data);
         dispatch(setToken(result.data));
-        history.push("/home");
+        history.push("/");
       })
       .catch((err) => {
         setMessage(err.response.data);

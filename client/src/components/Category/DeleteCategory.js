@@ -3,6 +3,7 @@ import axios from "axios";
 
 const DeleteCategory = () => {
   const [category_id, setCategory_id] = useState(0);
+  const [message, setMessage] = useState("");
 
   const DeleteCategories = () => {
     axios
@@ -11,8 +12,11 @@ const DeleteCategory = () => {
           authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       })
-      .then((res) => {})
+      .then((res) => {
+        setMessage("deleted successfully");
+      })
       .catch((err) => {
+        setMessage("not deleted ");
         throw err;
       });
   };
@@ -46,6 +50,9 @@ const DeleteCategory = () => {
                 Delete Category
               </button>
             </th>
+          </tr>
+          <tr>
+            <th>{message}</th>
           </tr>
         </tbody>
       </table>

@@ -1,29 +1,31 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
 
 function EditCategory() {
   const [category_id, setCategory_id] = useState(0);
   const [category, setCategory] = useState();
-
-  const state = useSelector((state) => {
-    return {
-      token: state.login.token,
-    };
-  });
+  const [message, setMessage] = useState("");
 
   const EditCategories = () => {
-    axios.put(
-      `/category/${category_id}`,
-      {
-        category: category,
-      },
-      {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("token")}`,
+    axios
+      .put(
+        `/category/${category_id}`,
+        {
+          category: category,
         },
-      }
-    );
+        {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
+      .then((res) => {
+        setMessage("Update successfully");
+      })
+      .catch((err) => {
+        setMessage("not Updated");
+        throw err;
+      });
   };
 
   return (
@@ -34,7 +36,6 @@ function EditCategory() {
       <table className="tableEditCategory">
         <tbody>
           <tr>
-            {" "}
             <th>Category Id</th>
             <th>
               <input
@@ -65,6 +66,9 @@ function EditCategory() {
                 Edit Category
               </button>
             </th>
+          </tr>
+          <tr>
+            <th>{message}</th>
           </tr>
         </tbody>
       </table>
